@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sunny | Data Analyst Portfolio</title>
-    <!-- Ensure you have the Font Awesome Link -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>👨‍💻</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
+    <title>Sunny Bhardwaj | Data Analyst Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>📊</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <style>
@@ -18,17 +16,22 @@
             --secondary: #22c55e;
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
+            --circle-inner: #0b0f19;
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Basic Reset */
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-deep);
             color: var(--text-main);
             line-height: 1.6;
+            transition: background-color 0.4s, color 0.4s;
         }
+
+        /* --- Font Modes --- */
+        body.font-mono { font-family: 'Fira Code', monospace; }
+        body.font-serif { font-family: 'Playfair Display', serif; }
 
         /* --- Navigation --- */
         nav {
@@ -42,18 +45,18 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
         }
-.logo {
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    user-select: none;
-    transition: var(--transition);
-}
-
-.logo:hover {
-    letter-spacing: 2px; /* Smooth expansion effect on hover */
-    filter: drop-shadow(0 0 8px var(--primary));
-}
+        .logo {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            user-select: none;
+            transition: var(--transition);
+        }
+        .logo:hover {
+            letter-spacing: 2px;
+            filter: drop-shadow(0 0 8px var(--primary));
+        }
         .nav-links { display: flex; list-style: none; gap: 2rem; }
         .nav-links a { 
             text-decoration: none; color: var(--text-dim); 
@@ -64,7 +67,7 @@
         /* --- Global Layout --- */
         section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
         .container { max-width: 1200px; margin: 0 auto; width: 100%; }
-        h2 { font-size: 2.5rem; margin-bottom: 3rem; position: relative; display: inline-block; }
+        h2 { font-size: 2.5rem; margin-bottom: 3rem; position: relative; display: inline-block; color: var(--text-main); }
         h2::after {
             content: ''; position: absolute; bottom: -10px; left: 0;
             width: 50px; height: 4px; background: var(--primary);
@@ -73,8 +76,8 @@
         /* --- Hero Section --- */
         .hero { flex-direction: row; justify-content: space-between; align-items: center; gap: 4rem; }
         .hero-content { flex: 1; }
-        .hero-content h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero-content span { color: var(--primary); }
+        .hero-name { font-weight: 800; font-size: 3.5rem; display: block; margin-bottom: 0.5rem; color: #fff; transition: color 0.4s; }
+        body.light-mode .hero-name { color: #0f172a; }
         
         .hero-image-container { flex: 1; display: flex; justify-content: flex-end; }
         .image-wrapper { position: relative; animation: float 6s ease-in-out infinite; }
@@ -90,73 +93,33 @@
 
         /* --- About Section --- */
         .about-flex { display: flex; align-items: center; gap: 4rem; }
-        .about-text { flex: 1; }
-        .about-img { width: 300px; border-radius: 20px; filter: grayscale(30%); }
-        /* ... existing styles ... */
+        .about-img { width: 300px; border-radius: 20px; filter: grayscale(10%); }
 
-    .social-links {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .social-icon {
-        width: 45px;
-        height: 45px;
-        background: var(--bg-accent);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--text-main);
-        text-decoration: none;
-        font-size: 1.2rem;
-        transition: var(--transition);
-    }
-
-    .social-icon:hover {
-        background: var(--primary);
-        color: var(--bg-deep);
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
-    }
-
-        /* --- Skills Section --- */
-        .skills-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-            gap: 2rem; 
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
             margin-top: 2rem;
         }
-        .skill-card {
+        .social-icon {
+            width: 45px;
+            height: 45px;
             background: var(--bg-accent);
-            padding: 2rem;
-            border-radius: 16px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        .skill-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-        .skill-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
-
-        /* --- Projects Section --- */
-        .project-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 2.5rem; 
-        }
-        .project-card {
-            background: var(--bg-accent);
-            border-radius: 20px;
-            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.2rem;
             transition: var(--transition);
         }
-        .project-card:hover { transform: scale(1.02); }
-        .project-img { width: 100%; height: 200px; object-fit: cover; }
-        .project-info { padding: 1.5rem; }
-        .project-tags { display: flex; gap: 0.5rem; margin-top: 1rem; }
-        .tag { font-size: 0.75rem; background: rgba(56, 189, 248, 0.1); color: var(--primary); padding: 4px 12px; border-radius: 20px; }
+        .social-icon:hover {
+            background: var(--primary);
+            color: #0f172a;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
 
         /* --- Contact Form --- */
         .contact-container {
@@ -165,24 +128,31 @@
             border-radius: 24px;
             max-width: 700px;
             margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
         }
         .form-group { margin-bottom: 1.5rem; }
         input, textarea {
             width: 100%; padding: 1rem; background: var(--bg-deep);
-            border: 1px solid #334155; color: white; border-radius: 8px; outline: none;
+            border: 1px solid #334155; color: var(--text-main); border-radius: 8px; outline: none;
+            font-family: inherit; transition: var(--transition);
         }
-        input:focus { border-color: var(--primary); }
+        input:focus, textarea:focus { border-color: var(--primary); }
+        .form-status {
+            padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;
+            display: none; font-weight: 600; font-size: 0.95rem; text-align: center;
+        }
+        .form-status.success { display: block; background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid #22c55e; }
 
         .btn {
             display: inline-block;
             padding: 1rem 2rem; border: none; border-radius: 8px;
-            background: var(--primary); color: var(--bg-deep);
+            background: var(--primary); color: #0f172a;
             font-weight: 700; cursor: pointer; transition: var(--transition);
-            text-decoration: none;
+            text-decoration: none; font-family: inherit;
         }
-        .btn:hover { opacity: 0.9; transform: scale(1.05); }
+        .btn:hover { opacity: 0.9; transform: scale(1.03); }
 
-        /* --- Animations --- */
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
         /* --- Mobile Responsive --- */
@@ -198,86 +168,194 @@
             padding: 1rem 2rem; border: 2px solid var(--primary); border-radius: 8px;
             background: transparent; color: var(--primary);
             font-weight: 700; cursor: pointer; transition: var(--transition);
-            text-decoration: none; display: inline-block;
+            text-decoration: none; display: inline-block; font-family: inherit;
         }
-        .btn-outline:hover { background: var(--primary); color: var(--bg-deep); }
-               /* --- Theme Toggle Styles --- */
-.theme-controller {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--bg-accent);
-    padding: 1rem;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    z-index: 2000;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        .btn-outline:hover { background: var(--primary); color: #0f172a; }
+
+        /* --- Theme Toggle & Customization Bar Styles --- */
+        .theme-controller {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-accent);
+            padding: 1.2rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            z-index: 2000;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            align-items: center;
+            transition: var(--transition);
+        }
+        .mode-toggle, .font-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg-deep);
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+        .mode-toggle:hover, .font-toggle:hover { transform: scale(1.1); }
+        .color-picker {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 0.8rem;
+        }
+        .color-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        .color-dot:hover { transform: scale(1.3); }
+        .color-dot.active { border-color: var(--text-main); }
+
+        /* --- Light Mode Variables Overrides --- */
+        body.light-mode {
+            --bg-deep: #f1f5f9;
+            --bg-accent: #ffffff;
+            --text-main: #0f172a;
+            --text-dim: #475569;
+            --circle-inner: #ffffff;
+        }
+        body.light-mode nav {
+            background: rgba(241, 245, 249, 0.9);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        body.light-mode .theme-controller {
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        body.light-mode input, body.light-mode textarea {
+            border: 1px solid #cbd5e1;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        .typed-cursor {
+            font-weight: 200;
+            opacity: 1;
+            animation: blink 0.7s infinite;
+            margin-left: 3px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        /* Core Image Canvas Container */
+.data-canvas-frame {
+    position: relative;
+    display: inline-block;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.mode-toggle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: var(--bg-deep);
+/* Master Image Styling */
+.about-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    filter: grayscale(15%) contrast(105%);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 2;
+    position: relative;
+}
+
+/* UI Corner Targets (Mimicking Data Coordinates) */
+.ui-corner {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--primary);
+    z-index: 3;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+.ui-corner.top-left     { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+.ui-corner.top-right    { top: 4px; right: 4px; border-left: none; border-bottom: none; }
+.ui-corner.bottom-left  { bottom: 4px; left: 4px; border-right: none; border-top: none; }
+.ui-corner.bottom-right { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+
+/* Vertical Data Metric Stream Animation */
+.data-stream-overlay {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.65rem;
+    font-weight: bold;
     color: var(--primary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    transition: var(--transition);
+    letter-spacing: 1px;
+    opacity: 0.4;
+    pointer-events: none;
 }
 
-.color-picker {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    align-items: center;
+.data-stream-overlay span {
+    animation: dataPulse 3s infinite ease-in-out;
 }
 
-.color-dot {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: var(--transition);
+/* Offset animation timing for data nodes to feel irregular/live */
+.data-stream-overlay span:nth-child(2) { animation-delay: 0.6s; }
+.data-stream-overlay span:nth-child(3) { animation-delay: 1.2s; }
+.data-stream-overlay span:nth-child(4) { animation-delay: 1.8s; }
+.data-stream-overlay span:nth-child(5) { animation-delay: 2.4s; }
+
+/* --- Hover State Micro-Interactions --- */
+.data-canvas-frame:hover {
+    border-color: rgba(var(--primary), 0.3);
+    box-shadow: 0 40px 80px -10px rgba(0, 0, 0, 0.5), 
+                0 0 20px -5px rgba(var(--primary), 0.1);
+    background: rgba(255, 255, 255, 0.02);
 }
 
-.color-dot:hover { transform: scale(1.3); }
-.color-dot.active { border-color: var(--text-main); }
-
-/* --- Light Mode Variables --- */
-body.light-mode {
-    --bg-deep: #f1f5f9;
-    --bg-accent: #ffffff;
-    --text-main: #0f172a;
-    --text-dim: #475569;
+/* Image scales precisely inside the UI grid */
+.data-canvas-frame:hover .about-img {
+    transform: scale(1.02);
+    filter: grayscale(0%) contrast(100%);
 }
 
-body.light-mode nav {
-    background: rgba(241, 245, 249, 0.9);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+/* Grid corners expand outwardly to 'lock on' to the image */
+.data-canvas-frame:hover .ui-corner {
+    opacity: 1;
+    width: 16px;
+    height: 16px;
 }
 
-
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  /* background: #f0f8ff; */
-  z-index: -1; /* behind everything */
-  top: 0;
-  left: 0;
-}
-
-body.light-mode #particles-js {
-    opacity: 0.4; /* Softens the dots so they don't distract from text in light mode */
+/* Keyframe Animations */
+@keyframes dataPulse {
+    0%, 100% { opacity: 0.3; transform: translateX(0); }
+    50% { opacity: 1; transform: translateX(-2px); color: var(--text-main); }
 }
     </style>
 </head>
@@ -285,26 +363,26 @@ body.light-mode #particles-js {
     <div id="particles-js"></div>
 
     <div class="theme-controller">
-    <!-- Light/Dark Toggle -->
-    <button class="mode-toggle" id="modeToggle" title="Toggle Light/Dark Mode">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <!-- Color Accent Picker -->
-    <div class="color-picker">
-        <div class="color-dot active" style="background: #38bdf8;" data-color="#38bdf8" title="Sky Blue"></div>
-        <div class="color-dot" style="background: #22c55e;" data-color="#22c55e" title="Emerald Green"></div>
-        <div class="color-dot" style="background: #f59e0b;" data-color="#f59e0b" title="Sunset Orange"></div>
-        <div class="color-dot" style="background: #ec4899;" data-color="#ec4899" title="Rose Pink"></div>
+        <button class="mode-toggle" id="modeToggle" title="Toggle Light/Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="font-toggle" id="fontToggle" title="Change Font Mode (Sans / Mono / Serif)">
+            <i class="fas fa-font"></i>
+        </button>
+        <div class="color-picker">
+            <div class="color-dot active" style="background: #38bdf8;" data-color="#38bdf8" title="Sky Blue"></div>
+            <div class="color-dot" style="background: #22c55e;" data-color="#22c55e" title="Emerald Green"></div>
+            <div class="color-dot" style="background: #f59e0b;" data-color="#f59e0b" title="Sunset Orange"></div>
+            <div class="color-dot" style="background: #ec4899;" data-color="#ec4899" title="Rose Pink"></div>
+        </div>
     </div>
-</div>
 
     <nav>
         <div class="logo" style="display: flex; align-items: baseline; gap: 2px;">
-    <span style="font-weight: 900; color: var(--primary); font-size: 1.8rem;">S</span>
-    <span style="font-weight: 700; color: var(--text-main); letter-spacing: 1px;">UNNY</span>
-    <span style="font-weight: 300; color: var(--text-dim); margin-left: 5px; border-left: 2px solid var(--primary); padding-left: 8px;">DATA</span>
-</div>
+            <span style="font-weight: 900; color: var(--primary); font-size: 1.8rem;">S</span>
+            <span style="font-weight: 700; color: var(--text-main); letter-spacing: 1px;">UNNY</span>
+            <span style="font-weight: 300; color: var(--text-dim); margin-left: 5px; border-left: 2px solid var(--primary); padding-left: 8px;">ANALYTICS</span>
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -317,23 +395,33 @@ body.light-mode #particles-js {
     <!-- Section 1: Hero -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <span style="font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Data Analyst</span>
-            <h1>Sunny <br><span>Bhardwaj</span></h1>
-            <p style="color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem;">
-                I specialize in SQL, Python, and Power BI to help businesses make 
-                smarter, data-driven decisions.
+            <h1 style="font-size: 2.5rem; line-height: 1.2; margin-bottom: 1.5rem;">
+                <span style="font-size: 1.2rem; font-weight: 500; color: var(--text-dim); display: block; margin-bottom: 0.5rem;">
+                    Hello, it's me
+                </span>
+                <span class="hero-name">
+                    Sunny Bhardwaj
+                </span>
+                <span style="font-size: 1.5rem; font-weight: 600; color: var(--text-dim); display: block;">
+                    and I am <span style="color:var(--primary)"id="typed-text"></span><span style="color:var(--primary)" class="typed-cursor">|</span>
+                </span>
+            </h1>
+
+            <p style="color: var(--text-dim); margin-bottom: 2rem; font-size: 1.1rem; max-width: 500px;">
+                Transforming raw, complex datasets into strategic actionable narratives. Specializing in pipeline automation, statistical modeling, and interactive business dashboard design.
             </p>
-           <div class="hero-btns">
-                <a href="#projects" class="btn">View Projects</a>
-                <!-- RESUME DOWNLOAD BUTTON -->
+
+            <div class="hero-btns">
+                <a href="#projects" class="btn">Explore Analytics</a>
                 <a href="Assets/Sunny_Resume.pdf" download class="btn-outline">
                     <i class="fas fa-download"></i> Download CV
                 </a>
             </div>
         </div>
+
         <div class="hero-image-container">
             <div class="image-wrapper">
-                <img src="Images/Sunny Pic 1.png" alt="Sunny" class="hero-image">
+                <img src="Images/Sunny Pic 1.png" alt="Sunny Bhardwaj" class="hero-image">
             </div>
         </div>
     </section>
@@ -341,114 +429,299 @@ body.light-mode #particles-js {
     <!-- Section 2: About -->
     <section id="about">
         <div class="container">
-            <h2>About Me</h2>
+            <div class="container" style="max-width: 1100px; margin: 0 auto;">
+            <div style="margin-bottom: 3rem; border-left: 4px solid var(--primary); padding-left: 15px;">
+                <h2 style="font-size: 2rem; font-weight: 800; margin: 0;">About Me</h2>
+            </div>
             <div class="about-flex">
-                <img src="Images/Sunny Pic 2.png" alt="Data Analysis" class="about-img">
+                <!-- Enhanced Data Analyst UI Canvas Frame -->
+<div class="data-canvas-frame">
+    <!-- UI Target Corners -->
+    <span class="ui-corner top-left"></span>
+    <span class="ui-corner top-right"></span>
+    <span class="ui-corner bottom-left"></span>
+    <span class="ui-corner bottom-right"></span>
+    
+    <!-- Vertical Data Stream Overlay -->
+    <div class="data-stream-overlay">
+        <span>01101</span>
+        <span>INDEX</span>
+        <span>LOAD</span>
+        <span>98.4%</span>
+        <span>EXEC</span>
+    </div>
+
+    <!-- The Portfolio Image -->
+    <img src="Images/Sunny Pic 2.png" alt="Sunny Bhardwaj - Data Analyst" class="about-img">
+</div>
                 <div style="flex: 1; min-width: 300px;">
-                <!-- Who Am I Label -->
-                <p style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem;">
-                    Who Am I?
-                </p>
-                
-                <!-- Main Identity Header -->
-                <h2 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem; border: none; padding: 0;">
-                    I'm Sunny Bhardwaj, a <br>
-                    <span style="color: var(--text-dim);">Data Analyst</span>
-                </h2>
-                <div class="about-text">
-                    <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1.5rem;">
-                        I am a passionate Data Analyst with a knack for turning complex datasets into actionable insights. With a background in statistical modeling and data visualization, I bridge the gap between raw numbers and business strategy.
+                    <p style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 0.5rem;">
+                        Data Narrative
                     </p>
-                    <p style="color: var(--text-dim); font-size: 1.1rem;">
-                        Whether it's cleaning messy data with Python or building interactive dashboards in Power BI, I focus on accuracy and clarity.
-                    </p>
-                    <!-- Social Media Links -->
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/sunny-bhardwaj1/" target="_blank" class="social-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/bhardwajsunny5911" target="_blank" class="social-icon" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <!-- <a href="https://twitter.com/your-handle" target="_blank" class="social-icon" title="Twitter/X">
-                        <i class="fab fa-x-twitter"></i>
-                    </a> -->
-                    <a href="mailto:bhardwajsunny5911@gmail.com" class="social-icon" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-                </div>
+                    
+                    <h2 style="font-size: 2.5rem; line-height: 1.1; margin-bottom: 2rem; border: none; padding: 0; color: var(--text-main);">
+                        I'm Sunny Bhardwaj, a <br>
+                        <span style="color: var(--text-dim); font-size: 2rem;">Data Analyst & Insights Engineer</span>
+                    </h2>
+                    <div class="about-text">
+                        <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                            I translate structural database management architectures and processing records directly into clean business intelligence ecosystems. I approach business problems with quantitative logic, deploying engineered logic from predictive modeling down into robust automated reporting engines.
+                        </p>
+                        <p style="color: var(--text-dim); font-size: 1.1rem;">
+                            From constructing optimized multi-table relational queries in SQL to building automated programmatic script processing pipelines in Python, I map metrics explicitly to foster clarity, scalability, and impact.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/sunny-bhardwaj1/" target="_blank" class="social-icon" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/bhardwajsunny5911" target="_blank" class="social-icon" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:bhardwajsunny5911@gmail.com" class="social-icon" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section 3: Skills -->
-    <section id="skills" style="background: rgba(255,255,255,0.02);">
+    <section id="skills" style="background: rgba(255,255,255,0.01); padding: 5rem 1.5rem;">
         <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>SQL</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Querying & Management</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                
+                <!-- COLUMN 1: ANALYTICS ECOSYSTEM -->
+                <div>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 2rem; border-left: 4px solid var(--primary); padding-left: 12px;">Data Stack Ecosystem</h2>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                                <span><i class="fas fa-database" style="color: var(--primary); margin-right: 6px;"></i> Advanced SQL <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 400;">(Queries, Joins, CTEs)</span></span>
+                                <span>90%</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                                <div style="width: 90%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                                <span><i class="fab fa-python" style="color: var(--primary); margin-right: 6px;"></i> Python Analysis <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 400;">(Pandas, NumPy)</span></span>
+                                <span>85%</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                                <div style="width: 85%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                                <span><i class="fas fa-chart-bar" style="color: var(--primary); margin-right: 6px;"></i> BI Tools <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 400;">(Power BI, Tableau)</span></span>
+                                <span>85%</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                                <div style="width: 85%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                                <span><i class="fas fa-table" style="color: var(--primary); margin-right: 6px;"></i> Excel & Automation</span>
+                                <span>80%</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                                <div style="width: 80%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-python"></i>
-                    <h3>Python</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Pandas, NumPy, Scikit-learn</p>
+
+                <!-- COLUMN 2: OPERATIONS AND MODELING -->
+                <div>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 2rem; border-left: 4px solid var(--primary); padding-left: 12px;">Core Architecture</h2>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                                <span><i class="fas fa-project-diagram" style="color: var(--primary); margin-right: 6px;"></i> Data Modeling & Warehousing</span>
+                                <span>85%</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                                <div style="width: 85%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                                <span><i class="fas fa-filter" style="color: var(--primary); margin-right: 6px;"></i> ETL Pipelines & Data Cleaning</span>
+                                <span>80%</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                                <div style="width: 80%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                                <span><i class="fas fa-calculator" style="color: var(--primary); margin-right: 6px;"></i> Statistical Testing & A/B Testing</span>
+                                <span>75%</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                                <div style="width: 75%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                            </div>
+                        </div>
+                         <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem; font-weight: 600; font-size: 0.95rem; color: var(--text-main);">
+                                <span><i class="fas fa-calculator" style="color: var(--primary); margin-right: 6px;"></i>Data Visualization & Reporting </span>
+                                <span>90%</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px;">
+                                <div style="width: 75%; height: 100%; background: var(--primary); border-radius: 10px;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-chart-bar"></i>
-                    <h3>Power BI</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Interactive Dashboards</p>
+
+                <!-- COLUMN 3: METHODOLOGIES -->
+                <div>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 2rem; border-left: 4px solid var(--primary); padding-left: 12px;">Methodologies</h2>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; justify-items: center; text-align: center;">
+                        <div>
+                            <div style="position: relative; width: 85px; height: 85px; margin: 0 auto 0.7rem; border-radius: 50%; background: conic-gradient(var(--primary) 90%, rgba(255,255,255,0.08) 0); display: flex; align-items: center; justify-content: center; transition: var(--transition);">
+                                <div style="width: 73px; height: 73px; background: var(--circle-inner); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; color: var(--text-main); transition: var(--transition);">90%</div>
+                            </div>
+                            <h4 style="font-size: 0.9rem; margin: 0; font-weight: 600; color: var(--text-main);">Data Visualization</h4>
+                        </div>
+
+                        <div>
+                            <div style="position: relative; width: 85px; height: 85px; margin: 0 auto 0.7rem; border-radius: 50%; background: conic-gradient(var(--primary) 85%, rgba(255,255,255,0.08) 0); display: flex; align-items: center; justify-content: center; transition: var(--transition);">
+                                <div style="width: 73px; height: 73px; background: var(--circle-inner); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; color: var(--text-main); transition: var(--transition);">85%</div>
+                            </div>
+                            <h4 style="font-size: 0.9rem; margin: 0; font-weight: 600; color: var(--text-main);">Quantitative Logic</h4>
+                        </div>
+
+                        <div>
+                            <div style="position: relative; width: 85px; height: 85px; margin: 0 auto 0.7rem; border-radius: 50%; background: conic-gradient(var(--primary) 88%, rgba(255,255,255,0.08) 0); display: flex; align-items: center; justify-content: center; transition: var(--transition);">
+                                <div style="width: 73px; height: 73px; background: var(--circle-inner); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; color: var(--text-main); transition: var(--transition);">88%</div>
+                            </div>
+                            <h4 style="font-size: 0.9rem; margin: 0; font-weight: 600; color: var(--text-main);">Predictive Analysis</h4>
+                        </div>
+
+                        <div>
+                            <div style="position: relative; width: 85px; height: 85px; margin: 0 auto 0.7rem; border-radius: 50%; background: conic-gradient(var(--primary) 80%, rgba(255,255,255,0.08) 0); display: flex; align-items: center; justify-content: center; transition: var(--transition);">
+                                <div style="width: 73px; height: 73px; background: var(--circle-inner); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; color: var(--text-main); transition: var(--transition);">80%</div>
+                            </div>
+                            <h4 style="font-size: 0.9rem; margin: 0; font-weight: 600; color: var(--text-main);">Insight Reporting</h4>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-table"></i>
-                    <h3>Excel</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">VBA & Advanced Formulas</p>
-                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Section 4: Projects -->
-    <section id="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="project-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <img src="Images/Sales Dashboard.png" alt="Project 1" class="project-img">
-                    <div class="project-info">
-                        <h3>Sales Performance Dashboard</h3>
-                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.5rem;">Comprehensive analysis of retail sales data using Excel to identify growth opportunities.</p>
-                        <div class="project-tags">
-                            <span class="tag">Excel</span>
-                            <span class="tag">VBA</span>
-                        </div>
+    <section id="projects" style="padding: 5rem 1.5rem; background: rgba(255,255,255,0.01);">
+    <div class="container" style="max-width: 1100px; margin: 0 auto;">
+        
+        <!-- Section Header -->
+        <div style="margin-bottom: 3rem; border-left: 4px solid var(--primary-color, #3b82f6); padding-left: 15px;">
+            <h2 style="font-size: 2rem; font-weight: 800; margin: 0 0 0.3rem 0;">Featured Projects</h2>
+        </div>
+
+        <!-- Row-Based Compact List -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            
+            <!-- PROJECT 1: CUSTOMER CHURN -->
+            <div style="display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
+                <!-- Left Main Info -->
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #fff;">Customer Churn Analysis</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1rem 0;">
+                        Analyzed telecom customer data to build a churn prediction model and identify retention risks.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #93c5fd; font-weight: 600;">Python</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Scikit-Learn</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Pandas</span>
                     </div>
                 </div>
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <img src="Images/Customer Churn Prediction.png" alt="Project 2" class="project-img">
-                    <div class="project-info">
-                        <h3>Customer Churn Prediction</h3>
-                        <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 0.5rem;">Predictive model built with Python to identify customers likely to leave the service.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">ML</span>
-                        </div>
-                    </div>
+                <!-- Right Core Highlights -->
+                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid rgba(255,255,255,0.05); padding-left: 1.5rem;">
+                    <div><strong style="color: #fff;">Insight:</strong> Month-to-month contracts carry a 63% higher churn risk.</div>
+                    <div style="color: #4ade80; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Proposed strategies to reduce annual churn by 10–15%.</div>
                 </div>
             </div>
+
+            <!-- PROJECT 2: SALES DASHBOARD -->
+            <div style="display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #fff;">Sales Performance Dashboard</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1rem 0;">
+                        Created a professional KPI dashboard tracking revenue, segments, and regional trends dynamically.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #93c5fd; font-weight: 600;">Power BI</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">DAX</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Excel</span>
+                    </div>
+                </div>
+                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid rgba(255,255,255,0.05); padding-left: 1.5rem;">
+                    <div><strong style="color: #fff;">Features:</strong> Interactive timelines, regional matrix, top 10 products tracking.</div>
+                    <div style="color: #4ade80; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Accelerated reporting speed to spot slow regions instantly.</div>
+                </div>
+            </div>
+
+            <!-- PROJECT 3: HR ANALYTICS -->
+            <div style="display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #fff;">HR Attrition Insights</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1rem 0;">
+                        Executed exploratory data analysis to isolate organizational employee retention risk factors.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #93c5fd; font-weight: 600;">Python</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Power BI</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Seaborn</span>
+                    </div>
+                </div>
+                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid rgba(255,255,255,0.05); padding-left: 1.5rem;">
+                    <div><strong style="color: #fff;">Insight:</strong> Lower salary hikes and under-3-year tenures drove the highest attrition.</div>
+                    <div style="color: #4ade80; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Structured direct data targets for adjusting promotion cycles.</div>
+                </div>
+            </div>
+
+            <!-- PROJECT 4: NETFLIX ANALYSIS -->
+            <div style="display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #fff;">Netflix Dataset Analysis</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1rem 0;">
+                        Parsed catalog metrics to discover structural global distribution differences between films and series.
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #93c5fd; font-weight: 600;">Python</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Pandas</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Matplotlib</span>
+                    </div>
+                </div>
+                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid rgba(255,255,255,0.05); padding-left: 1.5rem;">
+                    <div><strong style="color: #fff;">Insight:</strong> Documentaries and dramas dominate; episodic production scaled heavily post-2018.</div>
+                    <div style="color: #4ade80; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Provided analytical modeling used for regional content plans.</div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Section 5: Contact -->
     <section id="contact">
         <div class="container">
-             <h2>Contact Us</h2>
+            <div class="container" style="max-width: 1100px; margin: 0 auto;">
+            <div style="margin-bottom: 3rem; border-left: 4px solid var(--primary); padding-left: 15px;">
+                <h2 style="font-size: 2rem; font-weight: 800; margin: 0;">Contact Us</h2>
+            </div>
             <div class="contact-container">
                 <h2>Get In Touch</h2>
                 <!-- Replace 'your-email@example.com' with your actual email -->
@@ -464,7 +737,7 @@ body.light-mode #particles-js {
                     </div>
                     <!-- Hidden field to prevent spam -->
                     <input type="text" name="_gotcha" style="display:none">
-                    <button type="submit" class="btn">Send Message</button>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
                 </form>
             </div>
         </div>
@@ -474,75 +747,125 @@ body.light-mode #particles-js {
         &copy; 2026 Sunny Bhardwaj. All rights reserved.
     </footer>
 
-  <script>
-    const modeToggle = document.getElementById('modeToggle');
-    const body = document.body;
-    const icon = modeToggle.querySelector('i');
+    <script>
+// Typing Animation Strings Configuration (Transformed for Data Analyst)
+        const strings = [ "a Data Analyst ","a Insights Engineer", "an AI Tools & ChatGPT Expert"];
+        let stringIdx = 0, charIdx = 0, isDeleting = false;
+        const targetEl = document.getElementById("typed-text");
 
-    // 1. Light/Dark Mode Logic
-    modeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        if (body.classList.contains('light-mode')) {
-            icon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            icon.classList.replace('fa-sun', 'fa-moon');
+        function typeEffect() {
+            const currentString = strings[stringIdx];
+            if (isDeleting) {
+                targetEl.textContent = currentString.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                targetEl.textContent = currentString.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIdx === currentString.length) {
+                typeSpeed = 2000; 
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                stringIdx = (stringIdx + 1) % strings.length;
+                typeSpeed = 400; 
+            }
+            setTimeout(typeEffect, typeSpeed);
         }
-    });
+        document.addEventListener("DOMContentLoaded", () => setTimeout(typeEffect, 500));
 
-    // 2. Theme Color Logic + Particle Update
-    const dots = document.querySelectorAll('.color-dot');
-    
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-            dots.forEach(d => d.classList.remove('active'));
-            dot.classList.add('active');
 
-            const newColor = dot.getAttribute('data-color');
+        // --- Particle JS Handler ---
+        function initParticles() {
+            let isLight = document.body.classList.contains('light-mode');
+            // Extract core active theme color hex cleanly
+            let currentAccent = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
             
-            // Update CSS Variable
-            document.documentElement.style.setProperty('--primary', newColor);
+            // Set interactive edge colors conditionally to maintain visible contrast hierarchies
+            let particleColor = isLight ? '#475569' : currentAccent;
+            let lineLinkedColor = isLight ? '#94a3b8' : currentAccent;
 
-            // UPDATE PARTICLES COLOR DYNAMICALLY
-            if (window.pJSDom && window.pJSDom.length > 0) {
-                // Update dots color
-                window.pJSDom[0].pJS.particles.color.value = newColor;
-                // Update lines color
-                window.pJSDom[0].pJS.particles.line_linked.color = newColor;
-                // Refresh the canvas to apply changes
-                window.pJSDom[0].pJS.fn.particlesRefresh();
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": particleColor },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": false },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": lineLinkedColor,
+                        "opacity": isLight ? 0.25 : 0.4,
+                        "width": 1.5
+                    },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": { "distance": 140, "line_linked": { "opacity": 1 } }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+
+        // Initialize particles on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initParticles();
+        });
+
+        // --- Theme & Customization Controller Logic ---
+        const modeToggle = document.getElementById('modeToggle');
+        const fontToggle = document.getElementById('fontToggle');
+        const colorDots = document.querySelectorAll('.color-dot');
+
+        // Dark/Light Mode Toggler
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const icon = modeToggle.querySelector('i');
+            if (document.body.classList.contains('light-mode')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+            // Trigger dynamic matrix recalculation 
+            initParticles();
+        });
+
+        // Color Dots Accent Picker 
+        colorDots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                colorDots.forEach(d => d.classList.remove('active'));
+                dot.classList.add('active');
+                
+                const chosenColor = dot.getAttribute('data-color');
+                document.documentElement.style.setProperty('--primary', chosenColor);
+                
+                // Re-draw context array lines with new theme definitions mapping
+                initParticles();
+            });
+        });
+
+        // Font Mode Toggler
+        const fonts = ['font-sans', 'font-mono', 'font-serif'];
+        let currentFontIdx = 0;
+        fontToggle.addEventListener('click', () => {
+            document.body.classList.remove(...fonts);
+            currentFontIdx = (currentFontIdx + 1) % fonts.length;
+            if (fonts[currentFontIdx] !== 'font-sans') {
+                document.body.classList.add(fonts[currentFontIdx]);
             }
         });
-    });
-
-    // 3. Initial Particles Configuration
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 60 },
-            "color": { "value": "#38bdf8" }, // Set initial color to match your default --primary
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.5 },
-            "size": { "value": 3 },
-            "line_linked": {
-                "enable": true,
-                "distance": 150,
-                "color": "#38bdf8", // Set initial color to match your default --primary
-                "opacity": 0.3,
-                "width": 1
-            },
-            "move": {
-                "enable": true,
-                "speed": 2
-            }
-        },
-        "interactivity": {
-            "events": {
-                "onhover": { "enable": true, "mode": "grab" }, // 'grab' looks more "cyber" than repulse
-                "onclick": { "enable": true, "mode": "push" }
-            }
-        },
-        "retina_detect": true
-    });
-</script>
-
+    </script>
 </body>
 </html>
