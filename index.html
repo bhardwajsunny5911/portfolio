@@ -622,92 +622,87 @@
     </section>
 
     <!-- Section 4: Projects -->
-    <section id="projects" style="padding: 5rem 1.5rem; background: rgba(255,255,255,0.01);">
+    <section id="projects" style="padding: 5rem 1.5rem; background: var(--bg-surface, rgba(255,255,255,0.01));">
     <div class="container" style="max-width: 1100px; margin: 0 auto;">
         
-        <!-- Section Header -->
-        <div style="margin-bottom: 3rem; border-left: 4px solid var(--primary-color, #3b82f6); padding-left: 15px;">
-            <h2 style="font-size: 2rem; font-weight: 800; margin: 0 0 0.3rem 0;">Featured Projects</h2>
-        </div>
+        <div style="margin-bottom: 3rem; border-left: 4px solid var(--primary); padding-left: 15px; position: relative; display: inline-block;">
+    <h2 style="font-size: 2rem; font-weight: 800; margin: 0 0 0.3rem 0; color: var(--text-main); display: inline-block; position: relative;">
+        Featured Projects
+        <!-- <span style="display: block; width: 50px; height: 4px; background: var(--primary); margin-top: 8px; border-radius: 2px;"></span> -->
+    </h2>
+</div>
 
-        <!-- Row-Based Compact List -->
         <div style="display: flex; flex-direction: column; gap: 1.5rem;">
             
-            <!-- PROJECT 1: CUSTOMER CHURN -->
-            <div style="display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
-                <!-- Left Main Info -->
+            <div style="display: flex; flex-wrap: wrap; background: var(--card-bg, rgba(255, 255, 255, 0.02)); border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05)); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
                 <div style="flex: 1; min-width: 280px;">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #fff;">Customer Churn Analysis</h3>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-main);">Customer Churn Analysis</h3>
                     <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1rem 0;">
                         Analyzed telecom customer data to build a churn prediction model and identify retention risks.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #93c5fd; font-weight: 600;">Python</span>
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Scikit-Learn</span>
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Pandas</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #3b82f6; font-weight: 600;">Python</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--tag-bg, rgba(255,255,255,0.05)); border-radius: 4px; color: var(--text-dim);">Scikit-Learn</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--tag-bg, rgba(255,255,255,0.05)); border-radius: 4px; color: var(--text-dim);">Pandas</span>
                     </div>
                 </div>
-                <!-- Right Core Highlights -->
-                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid rgba(255,255,255,0.05); padding-left: 1.5rem;">
-                    <div><strong style="color: #fff;">Insight:</strong> Month-to-month contracts carry a 63% higher churn risk.</div>
-                    <div style="color: #4ade80; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Proposed strategies to reduce annual churn by 10–15%.</div>
+                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid var(--border-color, rgba(255,255,255,0.05)); padding-left: 1.5rem; color: var(--text-main);">
+                    <div><strong style="color: var(--text-main);">Insight:</strong> Month-to-month contracts carry a 63% higher churn risk.</div>
+                    <div style="color: #10b981; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Proposed strategies to reduce annual churn by 10–15%.</div>
                 </div>
             </div>
 
-            <!-- PROJECT 2: SALES DASHBOARD -->
-            <div style="display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
+            <div style="display: flex; flex-wrap: wrap; background: var(--card-bg, rgba(255, 255, 255, 0.02)); border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05)); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
                 <div style="flex: 1; min-width: 280px;">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #fff;">Sales Performance Dashboard</h3>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-main);">Sales Performance Dashboard</h3>
                     <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1rem 0;">
                         Created a professional KPI dashboard tracking revenue, segments, and regional trends dynamically.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #93c5fd; font-weight: 600;">Power BI</span>
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">DAX</span>
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Excel</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #3b82f6; font-weight: 600;">Power BI</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--tag-bg, rgba(255,255,255,0.05)); border-radius: 4px; color: var(--text-dim);">DAX</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--tag-bg, rgba(255,255,255,0.05)); border-radius: 4px; color: var(--text-dim);">Excel</span>
                     </div>
                 </div>
-                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid rgba(255,255,255,0.05); padding-left: 1.5rem;">
-                    <div><strong style="color: #fff;">Features:</strong> Interactive timelines, regional matrix, top 10 products tracking.</div>
-                    <div style="color: #4ade80; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Accelerated reporting speed to spot slow regions instantly.</div>
+                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid var(--border-color, rgba(255,255,255,0.05)); padding-left: 1.5rem; color: var(--text-main);">
+                    <div><strong style="color: var(--text-main);">Features:</strong> Interactive timelines, regional matrix, top 10 products tracking.</div>
+                    <div style="color: #10b981; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Accelerated reporting speed to spot slow regions instantly.</div>
                 </div>
             </div>
 
-            <!-- PROJECT 3: HR ANALYTICS -->
-            <div style="display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
+            <div style="display: flex; flex-wrap: wrap; background: var(--card-bg, rgba(255, 255, 255, 0.02)); border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05)); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
                 <div style="flex: 1; min-width: 280px;">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #fff;">HR Attrition Insights</h3>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-main);">HR Attrition Insights</h3>
                     <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1rem 0;">
                         Executed exploratory data analysis to isolate organizational employee retention risk factors.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #93c5fd; font-weight: 600;">Python</span>
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Power BI</span>
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Seaborn</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #3b82f6; font-weight: 600;">Python</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--tag-bg, rgba(255,255,255,0.05)); border-radius: 4px; color: var(--text-dim);">Power BI</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--tag-bg, rgba(255,255,255,0.05)); border-radius: 4px; color: var(--text-dim);">Seaborn</span>
                     </div>
                 </div>
-                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid rgba(255,255,255,0.05); padding-left: 1.5rem;">
-                    <div><strong style="color: #fff;">Insight:</strong> Lower salary hikes and under-3-year tenures drove the highest attrition.</div>
-                    <div style="color: #4ade80; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Structured direct data targets for adjusting promotion cycles.</div>
+                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid var(--border-color, rgba(255,255,255,0.05)); padding-left: 1.5rem; color: var(--text-main);">
+                    <div><strong style="color: var(--text-main);">Insight:</strong> Lower salary hikes and under-3-year tenures drove the highest attrition.</div>
+                    <div style="color: #10b981; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Structured direct data targets for adjusting promotion cycles.</div>
                 </div>
             </div>
 
-            <!-- PROJECT 4: NETFLIX ANALYSIS -->
-            <div style="display: flex; flex-wrap: wrap; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
+            <div style="display: flex; flex-wrap: wrap; background: var(--card-bg, rgba(255, 255, 255, 0.02)); border: 1px solid var(--border-color, rgba(255, 255, 255, 0.05)); border-radius: 12px; padding: 1.5rem; gap: 2rem; align-items: center;">
                 <div style="flex: 1; min-width: 280px;">
-                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: #fff;">Netflix Dataset Analysis</h3>
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-main);">Netflix Dataset Analysis</h3>
                     <p style="color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; margin: 0 0 1rem 0;">
                         Parsed catalog metrics to discover structural global distribution differences between films and series.
                     </p>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #93c5fd; font-weight: 600;">Python</span>
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Pandas</span>
-                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(255,255,255,0.05); border-radius: 4px; color: #cbd5e1;">Matplotlib</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: rgba(59, 130, 246, 0.1); border-radius: 4px; color: #3b82f6; font-weight: 600;">Python</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--tag-bg, rgba(255,255,255,0.05)); border-radius: 4px; color: var(--text-dim);">Pandas</span>
+                        <span style="font-size: 0.75rem; padding: 0.2rem 0.6rem; background: var(--tag-bg, rgba(255,255,255,0.05)); border-radius: 4px; color: var(--text-dim);">Matplotlib</span>
                     </div>
                 </div>
-                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid rgba(255,255,255,0.05); padding-left: 1.5rem;">
-                    <div><strong style="color: #fff;">Insight:</strong> Documentaries and dramas dominate; episodic production scaled heavily post-2018.</div>
-                    <div style="color: #4ade80; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Provided analytical modeling used for regional content plans.</div>
+                <div style="flex: 1.2; min-width: 300px; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem; border-left: 2px solid var(--border-color, rgba(255,255,255,0.05)); padding-left: 1.5rem; color: var(--text-main);">
+                    <div><strong style="color: var(--text-main);">Insight:</strong> Documentaries and dramas dominate; episodic production scaled heavily post-2018.</div>
+                    <div style="color: #10b981; font-weight: 600;"><span style="margin-right: 5px;">⚡</span>Impact: Provided analytical modeling used for regional content plans.</div>
                 </div>
             </div>
 
