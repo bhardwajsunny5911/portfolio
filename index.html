@@ -843,26 +843,6 @@
       cursor: pointer;
     }
 
-    /* .about-avatar:hover .avatar-upload-hint { opacity: 1; }
-  .avatar-upload-hint {
-    position: absolute; inset: 0; background: rgba(0,0,0,0.6);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 10px; opacity: 0; transition: opacity 0.3s; z-index: 2;
-    border-radius: 20px;
-  } */
-    /* .avatar-upload-hint span { font-size: 32px; }
-  .avatar-upload-hint p { font-size: 13px; color: rgba(255,255,255,0.8); font-family: 'DM Mono', monospace; }
-  #avatarInput { display: none; }
-  .avatar-placeholder {
-    width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-    background: linear-gradient(135deg, var(--surface2) 0%, #1a1a20 100%);
-    font-size: 90px;
-  } */
-    /* #avatarImg {
-    width: 100%; height: 100%; object-fit: cover;
-    display: none; position: absolute; inset: 0;
-  } */
     .about-tag {
       position: absolute;
       bottom: 20px;
@@ -1784,49 +1764,6 @@
       }
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav {
-        padding: 16px 20px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      section {
-        padding: 64px 20px;
-      }
-
-      .hero {
-        padding: 100px 20px 60px;
-      }
-
-      .about-grid,
-      .contact-grid,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-card.featured {
-        grid-template-columns: 1fr;
-      }
-
-      .tools-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 16px;
-        padding: 28px 20px;
-      }
-    }
-
     /* Floating cards in hero */
     .floating-card {
       position: absolute;
@@ -2603,6 +2540,200 @@
   .font-color-btn:hover { transform: scale(1.2); }
   .font-color-btn.active { border-color: #fff; transform: scale(1.15); }
 
+   /* Responsive */
+  /* ══════════════════════════════════════════
+     HAMBURGER BUTTON
+  ══════════════════════════════════════════ */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px; height: 20px;
+    cursor: pointer;
+    background: none; border: none;
+    padding: 0; flex-shrink: 0;
+    z-index: 1100;
+  }
+  .hamburger span {
+    display: block; width: 100%; height: 2px;
+    background: var(--text); border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), opacity 0.2s;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  /* ══════════════════════════════════════════
+     MOBILE FULLSCREEN DRAWER
+  ══════════════════════════════════════════ */
+  .mobile-nav {
+    position: fixed; inset: 0; z-index: 999;
+    background: var(--bg);
+    display: flex; flex-direction: column;
+    align-items: stretch; justify-content: flex-start;
+    padding-top: 80px;
+    opacity: 0; visibility: hidden;
+    transform: translateX(100%);
+    transition: transform 0.38s cubic-bezier(0.16,1,0.3,1),
+                opacity   0.3s ease,
+                visibility 0s 0.38s;
+  }
+  .mobile-nav.open {
+    opacity: 1; visibility: visible; transform: translateX(0);
+    transition: transform 0.38s cubic-bezier(0.16,1,0.3,1),
+                opacity   0.3s ease,
+                visibility 0s 0s;
+  }
+  .mobile-nav a {
+    font-size: 22px; font-weight: 700; letter-spacing: -0.3px;
+    color: var(--text); text-decoration: none;
+    padding: 16px 28px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    transition: color 0.2s, background 0.2s;
+  }
+  .mobile-nav a::after { content: '→'; font-size: 16px; color: var(--text-dim); transition: transform 0.2s, color 0.2s; }
+  .mobile-nav a:hover { color: var(--accent); background: var(--surface); }
+  .mobile-nav a:hover::after { transform: translateX(4px); color: var(--accent); }
+  .mobile-nav-footer {
+    margin-top: auto; padding: 24px 28px;
+    border-top: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .mobile-nav-hire {
+    display: block; text-align: center;
+    background: var(--accent); color: #0a0a0b;
+    padding: 16px 24px; border-radius: 14px;
+    font-size: 16px; font-weight: 800;
+    text-decoration: none; letter-spacing: -0.2px;
+  }
+  .mobile-nav-meta {
+    text-align: center; font-family: 'DM Mono', monospace;
+    font-size: 10px; color: var(--text-dim); letter-spacing: 1.5px;
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — TABLET (≤900px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    /* Nav */
+    nav { padding: 14px 20px !important; }
+    .nav-links { display: none !important; }
+    .nav-actions { gap: 12px; }
+    .theme-toggle { display: none; }
+    .btn-hire { display: none; }
+    .hamburger { display: flex; }
+
+    /* Sections */
+    section { padding: 56px 20px !important; max-width: 100vw; }
+    .skills-section-wrap { margin: 0 12px !important; padding: 40px 20px !important; }
+    .dashboard-section { margin: 0 12px !important; padding: 48px 20px !important; }
+
+    /* Hero */
+    .hero { padding: 100px 20px 56px !important; text-align: left !important; align-items: flex-start !important; }
+    .hero h1 { font-size: clamp(32px, 8vw, 56px) !important; }
+    .hero-sub { font-size: 14px !important; }
+    .hero-actions { flex-direction: column; gap: 10px; align-items: stretch !important; }
+    .hero-actions a, .hero-actions button { width: 100%; text-align: center; }
+    .hero-stats { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+    .floating-card { display: none !important; }
+
+    /* About */
+    .about-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .about-avatar { max-width: 100% !important; aspect-ratio: 16/9 !important; }
+    .about-tag { right: 12px !important; bottom: 12px !important; }
+
+    /* Skills */
+    .skills-tabs { flex-wrap: wrap; width: 100% !important; gap: 2px; }
+    .skill-tab { flex: 1 1 40%; font-size: 10px !important; padding: 8px 10px !important; text-align: center; }
+    .radar-wrap { grid-template-columns: 1fr !important; gap: 20px !important; }
+    #radarCanvas { width: 280px !important; height: 280px !important; display: block; margin: 0 auto; }
+    .prof-grid { grid-template-columns: 1fr !important; }
+    .tools-anim-grid { grid-template-columns: 1fr !important; }
+    .radar-legend { gap: 10px; }
+
+    /* Projects */
+    .proj-slider-wrap { margin-top: 28px; border-radius: 16px; }
+    .proj-slide-inner { grid-template-columns: 1fr !important; }
+    .proj-img-wrap { min-height: 200px !important; border-right: none !important; border-bottom: 1px solid var(--border); }
+    .proj-content { padding: 24px 20px !important; gap: 12px !important; }
+    .proj-title { font-size: 18px !important; }
+    .proj-desc { font-size: 12px !important; }
+    .proj-result-box { flex-wrap: wrap; }
+    .proj-stat { padding: 10px 12px !important; }
+    .proj-stat-val { font-size: 15px !important; }
+    .proj-controls { padding: 14px 16px; gap: 10px; }
+    .proj-cta { font-size: 12px !important; padding: 10px 18px !important; }
+
+    /* Dashboard */
+    .dashboard-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+    .dash-chart-row { grid-template-columns: 1fr !important; }
+    .kpi-value { font-size: 20px !important; }
+
+    /* NovaDB */
+    #novadb { padding: 56px 20px !important; }
+    .novadb-features-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+    .novadb-cta { padding: 32px 24px !important; }
+    .novadb-cta-inner { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .novadb-waitlist { flex-direction: column; gap: 10px; }
+    .novadb-join-btn { width: 100%; }
+    .novadb-cta-left h3 { font-size: 22px !important; }
+
+    /* Process */
+    .process-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+
+    /* Experience */
+    .exp-grid { grid-template-columns: 1fr !important; }
+
+    /* Contact */
+    .contact-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+    /* Testimonials */
+    .testimonials-grid { grid-template-columns: 1fr !important; }
+
+    /* Theme panel */
+    .theme-panel { bottom: 16px; right: 16px; }
+    .theme-btn-main { width: 42px; height: 42px; font-size: 18px; }
+
+    /* Project detail modal */
+    .pdm-inner { border-radius: 16px; max-height: 95vh; }
+    .pdm-hero { height: 200px !important; }
+    .pdm-body { padding: 20px 18px 28px !important; }
+    .pdm-stats { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+    .pdm-title { font-size: 20px !important; }
+
+    /* Section titles */
+    .section-title { font-size: clamp(26px, 7vw, 44px) !important; }
+    .section-desc { font-size: 14px !important; }
+
+    /* Footer */
+    footer { flex-direction: column; gap: 12px; padding: 24px 20px; text-align: center; }
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE — PHONE (≤480px)
+  ══════════════════════════════════════════ */
+  @media (max-width: 480px) {
+    nav { padding: 12px 16px !important; }
+    .hero h1 { font-size: clamp(26px, 9vw, 36px) !important; }
+    .hero-stats { grid-template-columns: 1fr 1fr !important; }
+    .hero-badge { font-size: 10px !important; }
+    .dashboard-grid { grid-template-columns: 1fr !important; }
+    .novadb-features-grid { grid-template-columns: 1fr !important; }
+    .process-grid { grid-template-columns: 1fr !important; }
+    .pdm-stats { grid-template-columns: 1fr 1fr !important; }
+    .proj-result-box { flex-direction: column; }
+    .proj-stat-divider { width: 100%; height: 1px; }
+    .section-title { font-size: clamp(22px, 8vw, 32px) !important; }
+    .skills-tabs { gap: 2px; }
+    .skill-tab { font-size: 9px !important; padding: 7px 6px !important; }
+    .novadb-badge { font-size: 9px !important; }
+    .mobile-nav a { font-size: 18px !important; padding: 14px 20px !important; }
+    .hero-actions { gap: 8px; }
+    .dashboard-section { margin: 0 8px !important; padding: 32px 14px !important; }
+    .skills-section-wrap { margin: 0 8px !important; padding: 32px 14px !important; }
+  }
   </style>
 </head>
 
@@ -2678,8 +2809,26 @@
     <div class="nav-actions">
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
       <a href="#contact" class="btn-hire">Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
     </div>
   </nav>
+
+  <!-- MOBILE NAV DRAWER -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about"      onclick="closeMobileNav()">About</a>
+  <a href="#skills"     onclick="closeMobileNav()">Skills</a>
+  <a href="#projects"   onclick="closeMobileNav()">Projects</a>
+  <a href="#dashboard"  onclick="closeMobileNav()">Dashboard</a>
+  <a href="#novadb"     onclick="closeMobileNav()">NovaDB</a>
+  <a href="#experience" onclick="closeMobileNav()">Experience</a>
+  <a href="#contact"    onclick="closeMobileNav()">Contact</a>
+  <div class="mobile-nav-footer">
+    <a href="#contact" class="mobile-nav-hire" onclick="closeMobileNav()">Hire Me ✦</a>
+    <div class="mobile-nav-meta">SUNNY BHARDWAJ · DATA ANALYST</div>
+  </div>
+</div>
 
   <!-- HERO -->
   <div style="max-width:1200px;margin:0 auto;position:relative;">
@@ -3950,1089 +4099,4 @@
     document.querySelectorAll('.theme-option').forEach(opt => {
       opt.addEventListener('click', () => {
         const theme = opt.dataset.theme;
-        document.documentElement.setAttribute('data-theme', theme);
-        document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active'));
-        opt.classList.add('active');
-        themePanelBtn.classList.remove('open');
-        themeOptionsEl.classList.remove('open');
-      });
-    });
-
-    // Old toggle in nav (keep for compatibility)
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const html = document.documentElement;
-        const cur = html.getAttribute('data-theme');
-        const next = cur === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
-      });
-    }
-
-    // Close theme panel on outside click
-    document.addEventListener('click', e => {
-      if (!e.target.closest('#themePanel')) {
-        themePanelBtn.classList.remove('open');
-        themeOptionsEl.classList.remove('open');
-      }
-    });
-
-    // ──────────────────────────────────────────
-    // LIVE DASHBOARD SIMULATION
-    // ──────────────────────────────────────────
-    const dashState = {
-      revenue: 2847320,
-      users: 14203,
-      conv: 6.2,
-      fraud: 23,
-      revenueHistory: Array.from({ length: 30 }, (_, i) => 2200000 + Math.random() * 800000),
-      usersHistory: Array.from({ length: 30 }, () => 12000 + Math.random() * 3000),
-      convHistory: Array.from({ length: 30 }, () => 5.5 + Math.random() * 1.5),
-      fraudHistory: Array.from({ length: 30 }, () => Math.floor(15 + Math.random() * 20)),
-    };
-
-    function fmtRevenue(v) {
-      if (v >= 1e7) return '₹' + (v / 1e7).toFixed(2) + 'Cr';
-      return '₹' + (v / 1e5).toFixed(1) + 'L';
-    }
-
-    function updateKPI(id, val, deltaId, delta, isDown) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.textContent = val;
-        el.classList.remove('update-flash');
-        void el.offsetWidth;
-        el.classList.add('update-flash');
-      }
-      const del = document.getElementById(deltaId);
-      if (del) {
-        const sign = delta >= 0 ? '▲' : '▼';
-        del.textContent = sign + ' ' + Math.abs(delta).toFixed(1) + '%';
-        del.className = 'kpi-delta ' + (delta >= 0 && !isDown ? 'up' : 'down');
-      }
-    }
-
-    function drawSparkline(svgId, data, color) {
-      const svg = document.getElementById(svgId);
-      if (!svg) return;
-      const w = 120, h = 40;
-      const min = Math.min(...data), max = Math.max(...data);
-      const range = max - min || 1;
-      const pts = data.map((v, i) => {
-        const x = (i / (data.length - 1)) * w;
-        const y = h - ((v - min) / range) * (h - 4) - 2;
-        return `${x},${y}`;
-      });
-      const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#e8ff47';
-      svg.innerHTML = `
-      <defs>
-        <linearGradient id="sg${svgId}" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="${accentColor}" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="${accentColor}" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path d="M ${pts.join(' L ')} L ${w},${h} L 0,${h} Z" fill="url(#sg${svgId})" />
-      <polyline points="${pts.join(' ')}" fill="none" stroke="${accentColor}" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="${pts[pts.length - 1].split(',')[0]}" cy="${pts[pts.length - 1].split(',')[1]}" r="3" fill="${accentColor}"/>
-    `;
-    }
-
-    function drawMainChart() {
-      const svg = document.getElementById('mainChart');
-      if (!svg) return;
-      const data = dashState.revenueHistory;
-      const w = 500, h = 160;
-      const min = Math.min(...data), max = Math.max(...data);
-      const range = max - min || 1;
-      const pts = data.map((v, i) => {
-        const x = 10 + (i / (data.length - 1)) * (w - 20);
-        const y = h - 10 - ((v - min) / range) * (h - 30);
-        return `${x},${y}`;
-      });
-      const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#e8ff47';
-      const accent2 = getComputedStyle(document.documentElement).getPropertyValue('--accent2').trim() || '#47ffb8';
-      const textDim = getComputedStyle(document.documentElement).getPropertyValue('--text-dim').trim() || '#555';
-      // Grid lines
-      let gridLines = '';
-      for (let i = 0; i <= 4; i++) {
-        const y = 10 + (i / 4) * (h - 30);
-        gridLines += `<line x1="10" y1="${y}" x2="${w - 10}" y2="${y}" stroke="${textDim}" stroke-width="0.5" stroke-dasharray="4,4"/>`;
-      }
-      svg.innerHTML = `
-      <defs>
-        <linearGradient id="mainGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="${accentColor}" stop-opacity="0.25"/>
-          <stop offset="100%" stop-color="${accentColor}" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      ${gridLines}
-      <path d="M ${pts.join(' L ')} L ${pts[pts.length - 1].split(',')[0]},${h - 10} L 10,${h - 10} Z" fill="url(#mainGrad)"/>
-      <polyline points="${pts.join(' ')}" fill="none" stroke="${accentColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="${pts[pts.length - 1].split(',')[0]}" cy="${pts[pts.length - 1].split(',')[1]}" r="5" fill="${accentColor}" opacity="0.9"/>
-      <circle cx="${pts[pts.length - 1].split(',')[0]}" cy="${pts[pts.length - 1].split(',')[1]}" r="9" fill="${accentColor}" opacity="0.2"/>
-    `;
-    }
-
-    const txTypes = ['Purchase', 'Refund', 'Subscription', 'Withdrawal', 'Transfer', 'Top-up'];
-    const txStatus = [['✅ Clear', '#47ffb8'], ['✅ Clear', '#47ffb8'], ['✅ Clear', '#47ffb8'], ['⚠️ Review', '#e8ff47'], ['🚫 Flagged', '#ff6b47']];
-    let txId = 1000;
-
-    function addTableRow() {
-      const tbody = document.getElementById('liveTable');
-      if (!tbody) return;
-      const type = txTypes[Math.floor(Math.random() * txTypes.length)];
-      const amt = (Math.random() * 50000 + 500).toFixed(0);
-      const [statusText, statusColor] = txStatus[Math.floor(Math.random() * txStatus.length)];
-      const time = new Date().toLocaleTimeString('en-IN', { hour12: false });
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-      <td>#TXN-${++txId}</td>
-      <td>${type}</td>
-      <td>₹${parseInt(amt).toLocaleString('en-IN')}</td>
-      <td style="color:${statusColor};font-family:'DM Mono',monospace;font-size:11px;">${statusText}</td>
-      <td>${time}</td>
-    `;
-      tr.style.animation = 'fadeUp 0.3s ease both';
-      tbody.insertBefore(tr, tbody.firstChild);
-      if (tbody.rows.length > 6) tbody.deleteRow(tbody.rows.length - 1);
-    }
-
-    function updateSegmentBars() {
-      const vals = [78, 62, 54, 41, 35].map(v => Math.max(10, Math.min(100, v + (Math.random() - 0.5) * 8)));
-      vals.forEach((v, i) => {
-        const bar = document.getElementById('bar' + i);
-        const val = document.getElementById('barval' + i);
-        if (bar) bar.style.width = v.toFixed(0) + '%';
-        if (val) val.textContent = v.toFixed(0) + '%';
-      });
-    }
-
-    function tickDashboard() {
-      const revChange = (Math.random() - 0.3) * 150000;
-      dashState.revenue = Math.max(1000000, dashState.revenue + revChange);
-      const revPct = (revChange / dashState.revenue * 100);
-      dashState.revenueHistory.push(dashState.revenue);
-      dashState.revenueHistory.shift();
-
-      const userChange = Math.floor((Math.random() - 0.35) * 200);
-      dashState.users = Math.max(10000, dashState.users + userChange);
-      dashState.usersHistory.push(dashState.users);
-      dashState.usersHistory.shift();
-
-      const convChange = (Math.random() - 0.45) * 0.3;
-      dashState.conv = Math.max(3, Math.min(12, dashState.conv + convChange));
-      dashState.convHistory.push(dashState.conv);
-      dashState.convHistory.shift();
-
-      const fraudChange = Math.floor((Math.random() - 0.6) * 5);
-      dashState.fraud = Math.max(0, dashState.fraud + fraudChange);
-      dashState.fraudHistory.push(dashState.fraud);
-      dashState.fraudHistory.shift();
-
-      updateKPI('kpiRevenue', fmtRevenue(dashState.revenue), 'kpiRevDelta', revPct, false);
-      updateKPI('kpiUsers', dashState.users.toLocaleString('en-IN'), 'kpiUsersDelta', userChange / dashState.users * 100, false);
-      updateKPI('kpiConv', dashState.conv.toFixed(1) + '%', 'kpiConvDelta', convChange, convChange < 0);
-      updateKPI('kpiFraud', dashState.fraud, 'kpiFraudDelta', -fraudChange, fraudChange > 0);
-
-      drawSparkline('sparkRevenue', dashState.revenueHistory);
-      drawSparkline('sparkUsers', dashState.usersHistory);
-      drawSparkline('sparkConv', dashState.convHistory);
-      drawSparkline('sparkFraud', dashState.fraudHistory);
-      drawMainChart();
-      updateSegmentBars();
-      addTableRow();
-    }
-
-    // Initial render
-    updateKPI('kpiRevenue', fmtRevenue(dashState.revenue), 'kpiRevDelta', 2.3, false);
-    updateKPI('kpiUsers', dashState.users.toLocaleString('en-IN'), 'kpiUsersDelta', 1.1, false);
-    updateKPI('kpiConv', dashState.conv.toFixed(1) + '%', 'kpiConvDelta', -0.2, true);
-    updateKPI('kpiFraud', dashState.fraud, 'kpiFraudDelta', 4.0, false);
-    drawSparkline('sparkRevenue', dashState.revenueHistory);
-    drawSparkline('sparkUsers', dashState.usersHistory);
-    drawSparkline('sparkConv', dashState.convHistory);
-    drawSparkline('sparkFraud', dashState.fraudHistory);
-    drawMainChart();
-    for (let i = 0; i < 5; i++) addTableRow();
-
-    // Tick every 2 seconds
-    setInterval(tickDashboard, 2000);
-
-    // Redraw charts on theme change
-    document.querySelectorAll('.theme-option').forEach(opt => {
-      opt.addEventListener('click', () => {
-        setTimeout(() => {
-          drawSparkline('sparkRevenue', dashState.revenueHistory);
-          drawSparkline('sparkUsers', dashState.usersHistory);
-          drawSparkline('sparkConv', dashState.convHistory);
-          drawSparkline('sparkFraud', dashState.fraudHistory);
-          drawMainChart();
-        }, 50);
-      });
-    });
-
-    // ──────────────────────────────────────────
-    // COUNTER ANIMATION
-    // ──────────────────────────────────────────
-    function animateCounter(el) {
-      const target = parseInt(el.dataset.count);
-      const suffix = el.innerHTML.replace(/[0-9]/g, '');
-      let current = 0;
-      const step = Math.max(1, Math.floor(target / 40));
-      const timer = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.innerHTML = current + suffix;
-        if (current >= target) clearInterval(timer);
-      }, 30);
-    }
-
-    // ══════════════════════════════════════════
-    // SKILLS SECTION
-    // ══════════════════════════════════════════
-
-    (function () {
-      const c = document.getElementById('skillsBgCanvas');
-      if (!c) return;
-      const ctx = c.getContext('2d');
-      function resize() { c.width = c.offsetWidth; c.height = c.offsetHeight; }
-      resize();
-      new ResizeObserver(resize).observe(c);
-      const pts = Array.from({ length: 28 }, () => ({
-        x: Math.random(), y: Math.random(),
-        vx: (Math.random() - .5) * .0003, vy: (Math.random() - .5) * .0003,
-        r: Math.random() * 1.5 + .5,
-        color: ['#e8ff47', '#47ffb8', '#a78bfa', '#ff6b47'][Math.floor(Math.random() * 4)]
-      }));
-      function frame() {
-        const W = c.width, H = c.height;
-        ctx.clearRect(0, 0, W, H);
-        pts.forEach(p => {
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < 0 || p.x > 1) p.vx *= -1;
-          if (p.y < 0 || p.y > 1) p.vy *= -1;
-        });
-        pts.forEach((a, i) => {
-          pts.forEach((b, j) => {
-            if (j <= i) return;
-            const dx = (a.x - b.x) * W, dy = (a.y - b.y) * H;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist > 120) return;
-            ctx.strokeStyle = `rgba(255,255,255,${(1 - dist / 120) * .08})`;
-            ctx.lineWidth = .5; ctx.beginPath();
-            ctx.moveTo(a.x * W, a.y * H); ctx.lineTo(b.x * W, b.y * H); ctx.stroke();
-          });
-          ctx.beginPath(); ctx.arc(a.x * W, a.y * H, a.r, 0, Math.PI * 2);
-          ctx.fillStyle = a.color; ctx.globalAlpha = .3; ctx.fill(); ctx.globalAlpha = 1;
-        });
-        requestAnimationFrame(frame);
-      }
-      frame();
-    })();
-
-    function switchSkillTab(tab) {
-      document.querySelectorAll('.skill-tab').forEach((b, i) => {
-        const names = ['tools', 'proficiency', 'radar', 'journey'];
-        b.classList.toggle('active', names[i] === tab);
-      });
-      document.querySelectorAll('.skill-panel').forEach(p => p.classList.remove('active'));
-      const panel = document.getElementById('panel-' + tab);
-      if (panel) panel.classList.add('active');
-      if (tab === 'proficiency') animateProfBars();
-      if (tab === 'radar') drawRadar(0);
-      if (tab === 'tools') animateToolBars();
-      if (tab === 'journey') animateJourney();
-    }
-
-    function animateToolBars() {
-      document.querySelectorAll('.tac-prog-fill').forEach((el, i) => {
-        const target = el.dataset.width;
-        el.style.width = '0%';
-        setTimeout(() => { el.style.width = target; }, i * 80 + 100);
-      });
-    }
-
-    document.querySelectorAll('.tool-anim-card').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
-      });
-    });
-
-    const skillsObs = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) { animateToolBars(); skillsObs.disconnect(); }
-    }, { threshold: 0.2 });
-    const skillsSec = document.querySelector('.skills-section-wrap');
-    if (skillsSec) skillsObs.observe(skillsSec);
-
-    function animateProfBars() {
-      document.querySelectorAll('.prof-fill').forEach((el, i) => {
-        el.style.width = '0%';
-        setTimeout(() => { el.style.width = el.dataset.w + '%'; }, i * 60 + 50);
-      });
-    }
-
-    let radarAnimFrame = null, radarHighlight = 0, radarProgress = 0;
-    const radarData = [
-      { label: 'Data Eng', val: 0.94, color: '#e8ff47' },
-      { label: 'BI & Viz', val: 0.97, color: '#47ffb8' },
-      { label: 'Python', val: 0.91, color: '#a78bfa' },
-      { label: 'ML', val: 0.88, color: '#ff6b47' },
-      { label: 'Stats / A/B', val: 0.85, color: '#60a5fa' },
-      { label: 'Cloud', val: 0.82, color: '#34d399' },
-    ];
-
-    function drawRadar(hl) {
-      radarHighlight = hl;
-      if (radarAnimFrame) cancelAnimationFrame(radarAnimFrame);
-      radarProgress = 0;
-      (function step() {
-        radarProgress = Math.min(1, radarProgress + 0.035);
-        renderRadar(radarProgress);
-        if (radarProgress < 1) radarAnimFrame = requestAnimationFrame(step);
-      })();
-    }
-
-    function highlightRadar(i) {
-      document.querySelectorAll('.radar-legend-item').forEach((el, j) => el.classList.toggle('active-legend', j === i));
-      drawRadar(i);
-    }
-
-    function renderRadar(progress) {
-      const canvas = document.getElementById('radarCanvas');
-      if (!canvas) return;
-      const ctx2 = canvas.getContext('2d');
-      const W = 340, H = 340, CX = 170, CY = 170, R = 120, n = radarData.length;
-      ctx2.clearRect(0, 0, W, H);
-      const ease = 1 - Math.pow(1 - progress, 3);
-
-      // Theme-aware colors
-      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-      const gridCol = isDark ? 'rgba(255,255,255,0.13)' : 'rgba(0,0,0,0.12)';
-      const gridFaint = isDark ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)';
-      const spokeCol = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.07)';
-      const labelCol = isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.55)';
-      const ringLabel = isDark ? 'rgba(255,255,255,0.22)' : 'rgba(0,0,0,0.35)';
-      const fillCol = isDark ? 'rgba(232,255,71,0.08)' : 'rgba(100,150,0,0.08)';
-      const strokeCol = isDark ? 'rgba(232,255,71,0.5)' : 'rgba(120,160,0,0.7)';
-      const dotCol = isDark ? 'rgba(232,255,71,0.7)' : 'rgba(100,140,0,0.8)';
-
-      // Draw grid rings
-      for (let ring = 1; ring <= 5; ring++) {
-        const r2 = R * (ring / 5);
-        ctx2.beginPath();
-        for (let i = 0; i < n; i++) {
-          const a = i / n * Math.PI * 2 - Math.PI / 2;
-          i === 0 ? ctx2.moveTo(CX + Math.cos(a) * r2, CY + Math.sin(a) * r2) : ctx2.lineTo(CX + Math.cos(a) * r2, CY + Math.sin(a) * r2);
-        }
-        ctx2.closePath();
-        ctx2.strokeStyle = ring === 5 ? gridCol : gridFaint;
-        ctx2.lineWidth = ring === 5 ? 1 : 0.5; ctx2.stroke();
-        ctx2.fillStyle = ringLabel; ctx2.font = '9px monospace'; ctx2.textAlign = 'left';
-        ctx2.fillText((ring * 20) + '%', CX + 4, CY - r2 + 3);
-      }
-      // Spokes
-      for (let i = 0; i < n; i++) {
-        const a = i / n * Math.PI * 2 - Math.PI / 2;
-        ctx2.beginPath(); ctx2.moveTo(CX, CY); ctx2.lineTo(CX + Math.cos(a) * R, CY + Math.sin(a) * R);
-        ctx2.strokeStyle = spokeCol; ctx2.lineWidth = 0.7; ctx2.stroke();
-      }
-
-      // Filled data shape
-      ctx2.beginPath();
-      for (let i = 0; i < n; i++) {
-        const a = i / n * Math.PI * 2 - Math.PI / 2;
-        const r2 = R * radarData[i].val * ease;
-        i === 0 ? ctx2.moveTo(CX + Math.cos(a) * r2, CY + Math.sin(a) * r2) : ctx2.lineTo(CX + Math.cos(a) * r2, CY + Math.sin(a) * r2);
-      }
-      ctx2.closePath();
-      ctx2.fillStyle = fillCol; ctx2.fill();
-      ctx2.strokeStyle = strokeCol; ctx2.lineWidth = 1.5; ctx2.stroke();
-
-      // Data points + labels
-      radarData.forEach((d, i) => {
-        const a = i / n * Math.PI * 2 - Math.PI / 2;
-        const r2 = R * d.val * ease;
-        const x = CX + Math.cos(a) * r2, y = CY + Math.sin(a) * r2;
-        const isHl = radarHighlight === i;
-        ctx2.beginPath(); ctx2.arc(x, y, isHl ? 6 : 4, 0, Math.PI * 2);
-        ctx2.fillStyle = isHl ? d.color : dotCol;
-        if (isHl) { ctx2.shadowColor = d.color; ctx2.shadowBlur = 14; }
-        ctx2.fill(); ctx2.shadowBlur = 0;
-        if (isHl) {
-          ctx2.beginPath(); ctx2.arc(x, y, 11, 0, Math.PI * 2);
-          ctx2.strokeStyle = d.color; ctx2.globalAlpha = 0.25; ctx2.lineWidth = 1.2; ctx2.stroke(); ctx2.globalAlpha = 1;
-        }
-        const lx = CX + Math.cos(a) * (R + 22), ly = CY + Math.sin(a) * (R + 22);
-        ctx2.fillStyle = isHl ? d.color : labelCol;
-        ctx2.font = isHl ? 'bold 10px monospace' : '10px monospace';
-        ctx2.textAlign = lx < CX - 5 ? 'right' : lx > CX + 5 ? 'left' : 'center';
-        ctx2.fillText(d.label, lx, ly + 3);
-      });
-    }
-
-    function animateJourney() {
-      document.querySelectorAll('.st-item').forEach((el, i) => {
-        el.classList.remove('st-visible');
-        setTimeout(() => el.classList.add('st-visible'), i * 160 + 60);
-      });
-    }
-    // ──────────────────────────────────────────
-    // NOVADB CODE TABS
-    // ──────────────────────────────────────────
-    function switchTab(which) {
-      ['nova', 'sql', 'mongo'].forEach(t => {
-        document.getElementById('code' + t.charAt(0).toUpperCase() + t.slice(1)).style.display = t === which ? 'block' : 'none';
-      });
-      document.querySelectorAll('.ndb-tab').forEach((el, i) => {
-        el.classList.toggle('active', ['nova', 'sql', 'mongo'][i] === which);
-      });
-    }
-
-    // NOVADB WAITLIST
-    function joinWaitlist() {
-      const input = document.getElementById('novadbEmail');
-      const btn = document.querySelector('.novadb-join-btn');
-      const countEl = document.getElementById('waitlistCount');
-      if (!input.value || !input.value.includes('@')) {
-        input.style.borderColor = 'var(--accent3)';
-        setTimeout(() => input.style.borderColor = '', 1500);
-        return;
-      }
-      btn.textContent = '✓ You\'re on the list!';
-      btn.style.background = 'linear-gradient(135deg, #059669, #0284c7)';
-      btn.disabled = true;
-      input.disabled = true;
-      const current = parseInt(countEl.textContent.replace(/,/g, ''));
-      countEl.textContent = (current + 1).toLocaleString('en-IN');
-      countEl.style.color = '#34d399';
-    }
-
-    // Animate waitlist counter up slowly
-    setInterval(() => {
-      const el = document.getElementById('waitlistCount');
-      if (el && !document.querySelector('.novadb-join-btn').disabled) {
-        const v = parseInt(el.textContent.replace(/,/g, ''));
-        if (Math.random() > 0.6) {
-          el.textContent = (v + Math.floor(Math.random() * 3 + 1)).toLocaleString('en-IN');
-        }
-      }
-    }, 4000);
-
-
-    function animateCounter(el) {
-      const target = parseInt(el.dataset.count);
-      const suffix = el.innerHTML.replace(/[0-9]/g, '');
-      let current = 0;
-      const step = Math.max(1, Math.floor(target / 40));
-      const timer = setInterval(() => {
-        current = Math.min(current + step, target);
-        el.innerHTML = current + suffix;
-        if (current >= target) clearInterval(timer);
-      }, 30);
-    }
-
-    // ──────────────────────────────────────────
-    // INTERSECTION OBSERVER
-    // ──────────────────────────────────────────
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          const counter = entry.target.querySelector('[data-count]');
-          if (counter && !counter.dataset.animated) {
-            counter.dataset.animated = true;
-            animateCounter(counter);
-          }
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal, .process-step').forEach(el => observer.observe(el));
-
-    setTimeout(() => {
-      document.querySelectorAll('[data-count]').forEach(el => {
-        if (!el.dataset.animated) {
-          el.dataset.animated = true;
-          animateCounter(el);
-        }
-      });
-    }, 600);
-
-    // ──────────────────────────────────────────
-    // FORM
-    // ──────────────────────────────────────────
-
-    const form = document.getElementById('contactForm');
-    const button = document.getElementById('formSubmit');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(
-          'https://formspree.io/f/mdabwbry',
-          {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          }
-        );
-
-        if (response.ok) {
-          button.textContent = '✓ Message Sent!';
-          button.style.background = '#47ffb8';
-          form.reset();
-
-          setTimeout(() => {
-            button.textContent = 'Send Message →';
-            button.style.background = '';
-          }, 3000);
-        }
-      } catch (error) {
-        button.textContent = 'Error!';
-      }
-    });
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if (id === '#') return;
-        const el = document.querySelector(id);
-        if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-      });
-    });
-
-  // -- NAV LOGO: Chart sequence → SB reveal --
-  (function(){
-    const nc = document.getElementById('navLogoCanvas');
-    if (!nc) return;
-    const DPR = window.devicePixelRatio || 1;
-    const NW = 120, NH = 36;
-    nc.width = NW * DPR; nc.height = NH * DPR;
-    nc.style.width = NW + 'px'; nc.style.height = NH + 'px';
-    const ctx = nc.getContext('2d');
-    ctx.scale(DPR, DPR);
-
-    const PAD = 3, CW = 62, CH = NH - PAD*2;
-    const CX = PAD, CY = PAD;
-
-    // Live accent color from CSS variable — updates with theme changes
-    function getAccent() {
-      return (getComputedStyle(document.documentElement)
-        .getPropertyValue('--accent').trim() || '#e8ff47');
-    }
-    function getAccent2() {
-      return (getComputedStyle(document.documentElement)
-        .getPropertyValue('--accent').trim() || '#e8ff47');
-    }
-    // derive a shifted hue color from accent for variety
-    function getAlt() {
-      return (getComputedStyle(document.documentElement)
-        .getPropertyValue('--accent').trim() || '#e8ff47');
-    }
-
-    // ── Sequence: each phase duration in frames ──
-    // Phase 0: bars grow in         (0–70)
-    // Phase 1: bars breathe         (70–130)
-    // Phase 2: transition out bars  (130–160)
-    // Phase 3: line chart draws in  (160–240)
-    // Phase 4: line breathes        (240–300)
-    // Phase 5: transition out line  (300–330)
-    // Phase 6: donut draws in       (330–420)
-    // Phase 7: donut breathes       (420–480)
-    // Phase 8: transition out donut (480–510)
-    // Phase 9: scatter draws in     (510–590)
-    // Phase 10: scatter breathes    (590–650)
-    // Phase 11: fade all out        (650–690)
-    // Phase 12: SB blink in + glow  (690–∞)
-
-    const PHASES = [70,130,160,240,300,330,420,480,510,590,650,690];
-    const barVals = [0.45,0.78,0.55,0.92,0.68,0.82];
-    const lineVals = [0.35,0.55,0.42,0.70,0.58,0.80,0.72,0.90];
-    const donutPcts = [0.38, 0.27, 0.20, 0.15];
-    const scatterPts = [
-      {x:0.12,y:0.75},{x:0.22,y:0.55},{x:0.18,y:0.85},{x:0.35,y:0.40},
-      {x:0.42,y:0.60},{x:0.50,y:0.30},{x:0.58,y:0.50},{x:0.65,y:0.20},
-      {x:0.72,y:0.45},{x:0.80,y:0.15},{x:0.88,y:0.35},{x:0.92,y:0.10},
-    ];
-
-    let t = 0;
-
-    function ease(x){ return 1 - Math.pow(1-Math.min(1,x),3); }
-
-    function getPhase(){
-      for(let i=0;i<PHASES.length;i++) if(t<PHASES[i]) return i;
-      return PHASES.length;
-    }
-    function phaseP(start,end){ return Math.min(1,Math.max(0,(t-start)/(end-start))); }
-
-    function drawBars(progress, breathe, alpha){
-      const A = getAccent(), B = getAccent2(), C = getAlt();
-      const bw = Math.floor(CW / barVals.length) - 2;
-      const colors = [A,B,C,A,B,C];
-      barVals.forEach((v,i) => {
-        const p = ease(Math.max(0,(progress - i*0.08)/0.52));
-        const bh = v * CH * p * (0.88 + Math.sin(breathe + i*1.1)*0.12);
-        const bx = CX + i*(bw+2);
-        const by = CY + CH - bh;
-        ctx.fillStyle = colors[i];
-        ctx.globalAlpha = alpha * (0.7 + p*0.3);
-        ctx.beginPath();
-        ctx.roundRect(bx, by, bw, Math.max(1,bh), [1,1,0,0]);
-        ctx.fill();
-      });
-      ctx.globalAlpha = 1;
-    }
-
-    function drawLine(progress, breathe, alpha){
-      const A = getAccent();
-      const n = lineVals.length;
-      const lpts = lineVals.map((v,i)=>({
-        x: CX + (i/(n-1))*CW,
-        y: CY + CH - v*CH*(0.88+Math.sin(breathe+i*0.9)*0.12)
-      }));
-      const drawn = Math.floor(progress*(n-1));
-      const frac = progress*(n-1) - drawn;
-      if(drawn < 1) return;
-      ctx.save();
-      ctx.beginPath();
-      ctx.moveTo(lpts[0].x, CY+CH);
-      for(let i=0;i<=Math.min(drawn,n-1);i++) ctx.lineTo(lpts[i].x,lpts[i].y);
-      if(drawn < n-1){
-        const ex=lpts[drawn].x+(lpts[drawn+1].x-lpts[drawn].x)*frac;
-        const ey=lpts[drawn].y+(lpts[drawn+1].y-lpts[drawn].y)*frac;
-        ctx.lineTo(ex,ey); ctx.lineTo(ex,CY+CH);
-      } else ctx.lineTo(lpts[n-1].x,CY+CH);
-      ctx.closePath(); ctx.fillStyle=A; ctx.globalAlpha=alpha*0.1; ctx.fill();
-      ctx.beginPath(); ctx.moveTo(lpts[0].x,lpts[0].y);
-      for(let i=1;i<=Math.min(drawn,n-1);i++) ctx.lineTo(lpts[i].x,lpts[i].y);
-      if(drawn < n-1){
-        const ex=lpts[drawn].x+(lpts[drawn+1].x-lpts[drawn].x)*frac;
-        const ey=lpts[drawn].y+(lpts[drawn+1].y-lpts[drawn].y)*frac;
-        ctx.lineTo(ex,ey);
-      }
-      ctx.strokeStyle=A; ctx.lineWidth=1.5; ctx.globalAlpha=alpha; ctx.lineJoin='round'; ctx.stroke();
-      for(let i=0;i<=Math.min(drawn,n-1);i++){
-        ctx.beginPath(); ctx.arc(lpts[i].x,lpts[i].y,2,0,Math.PI*2);
-        ctx.fillStyle=A; ctx.globalAlpha=alpha*0.9; ctx.fill();
-      }
-      ctx.globalAlpha=1; ctx.restore();
-    }
-
-    function drawDonut(progress, breathe, alpha){
-      const A=getAccent(), B=getAccent(), C=getAlt(), D='var(--accent)';
-      const sliceColors=[A,B,C,D];
-      const cx=CX+CW/2, cy=CY+CH/2, R=Math.min(CW,CH)/2-1, r=R*0.45;
-      let angle=-Math.PI/2;
-      donutPcts.forEach((pct,i)=>{
-        const full=pct*Math.PI*2;
-        const p=ease(Math.max(0,(progress-i*0.2)/0.8));
-        const sweep=full*p*(0.95+Math.sin(breathe+i*1.3)*0.05);
-        ctx.beginPath();
-        ctx.arc(cx,cy,R,angle,angle+sweep);
-        ctx.arc(cx,cy,r,angle+sweep,angle,true);
-        ctx.closePath();
-        ctx.fillStyle=sliceColors[i]; ctx.globalAlpha=alpha*(0.5+p*0.5); ctx.fill();
-        angle+=full;
-      });
-      ctx.globalAlpha=1;
-    }
-
-    function drawScatter(progress, breathe, alpha){
-      const A=getAccent(), B=getAccent(), C=getAlt(), D='var(--accent)';
-      const colors=[A,B,C,A,B,C,D,A,B,C,D,A];
-      scatterPts.forEach((p2,i)=>{
-        const delay=i/scatterPts.length;
-        const p=ease(Math.max(0,(progress-delay*0.7)/0.3));
-        if(p<=0)return;
-        const px=CX+p2.x*CW, py=CY+CH-p2.y*CH*(0.9+Math.sin(breathe+i*0.8)*0.1);
-        ctx.beginPath(); ctx.arc(px,py,2.2*p,0,Math.PI*2);
-        ctx.fillStyle=colors[i]; ctx.globalAlpha=alpha*p*0.85; ctx.fill();
-      });
-      ctx.globalAlpha=1;
-    }
-
-    function drawSB(progress, blinkOn, glow){
-      if(!blinkOn) return;
-      const alpha = ease(progress);
-        // SB goes on the right half: starts at CX+CW+8
-        const px = CX + CW + 8;
-
-        // Glowing dot separator
-        ctx.save();
-        ctx.beginPath(); ctx.arc(px + 1, NH / 2, 2, 0, Math.PI * 2);
-        ctx.fillStyle = GOLD;
-        ctx.shadowColor = GOLD; ctx.shadowBlur = glow ? 10 : 0;
-        ctx.globalAlpha = alpha; ctx.fill();
-        ctx.shadowBlur = 0; ctx.restore();
-
-        // SB text — grows in
-        ctx.save();
-        ctx.fillStyle = '#f0efed';
-        ctx.font = `800 13px "Syne",sans-serif`;
-        ctx.textAlign = 'left';
-        ctx.globalAlpha = alpha;
-        ctx.shadowColor = GOLD; ctx.shadowBlur = glow ? 6 : 0;
-        ctx.fillText('SB.', px + 7, NH / 2 + 5);
-        ctx.shadowBlur = 0; ctx.restore();
-      }
-
-      function frame() {
-        t++;
-        ctx.clearRect(0, 0, NW, NH);
-
-        const ph = getPhase();
-
-        if (ph === 0) {
-          // Bars grow in
-          drawBars(phaseP(0, 70), 0, 1);
-        }
-        else if (ph === 1) {
-          // Bars breathe
-          drawBars(1, t * 0.05, 1);
-        }
-        else if (ph === 2) {
-          // Bars → Line crossfade
-          const p = phaseP(130, 160);
-          drawBars(1, t * 0.05, 1 - p);
-          drawLine(p * 0.3, 0, p);
-        }
-        else if (ph === 3) {
-          // Line draws
-          drawLine(phaseP(160, 240), t * 0.04, 1);
-        }
-        else if (ph === 4) {
-          // Line breathes
-          drawLine(1, t * 0.04, 1);
-        }
-        else if (ph === 5) {
-          // Line → Donut
-          const p = phaseP(300, 330);
-          drawLine(1, t * 0.04, 1 - p);
-          drawDonut(p * 0.4, 0, p);
-        }
-        else if (ph === 6) {
-          // Donut draws
-          drawDonut(phaseP(330, 420), t * 0.03, 1);
-        }
-        else if (ph === 7) {
-          // Donut breathes
-          drawDonut(1, t * 0.03, 1);
-        }
-        else if (ph === 8) {
-          // Donut → Scatter
-          const p = phaseP(480, 510);
-          drawDonut(1, t * 0.03, 1 - p);
-          drawScatter(p * 0.3, 0, p);
-        }
-        else if (ph === 9) {
-          // Scatter draws
-          drawScatter(phaseP(510, 590), t * 0.04, 1);
-        }
-        else if (ph === 10) {
-          // Scatter breathes
-          drawScatter(1, t * 0.04, 1);
-        }
-        else if (ph === 11) {
-          // Everything fades out
-          const p = phaseP(650, 690);
-          drawScatter(1, t * 0.04, 1 - p);
-        }
-        else {
-          // Phase 12+: ONLY SB. blinks in — no charts
-          const sbStart = PHASES[11];
-          const blinkT = t - sbStart;
-          const sbP = Math.min(1, blinkT / 45);
-
-          // 5 rapid blinks then permanently on
-          let blinkOn = true;
-          if (blinkT < 30) { blinkOn = Math.floor(blinkT / 6) % 2 === 0; }
-
-          if (!blinkOn) { requestAnimationFrame(frame); return; }
-
-          const alpha = 1 - Math.pow(1 - sbP, 3);
-          const glow = 0.5 + Math.sin(t * 0.07) * 0.5;
-
-          // Center the SB. text in the full canvas
-          ctx.save();
-
-          ctx.font = '800 18px Syne, sans-serif';
-          ctx.textBaseline = 'middle';
-          ctx.textAlign = 'left';
-
-          const x = NW / 2 - 40; // Move 30px left
-          const y = NH / 2;
-
-          ctx.fillStyle = getComputedStyle(document.documentElement)
-            .getPropertyValue('--text')
-            .trim();
-
-          ctx.fillText('SB', x, y);
-
-          const sbWidth = ctx.measureText('SB').width;
-
-          ctx.fillStyle = getComputedStyle(document.documentElement)
-            .getPropertyValue('--accent')
-            .trim();
-
-          ctx.fillText('.', x + sbWidth, y);
-
-          ctx.restore();
-        }
-
-        requestAnimationFrame(frame);
-      }
-      frame();
-    })();
-
-    // ══════════════════════════════════════════
-    // ACCENT COLOR PICKER
-    // ══════════════════════════════════════════
-    document.querySelectorAll('.font-color-btn').forEach(btn => {
-      btn.addEventListener('click', e => {
-        e.stopPropagation();
-        const color = btn.dataset.color;
-        if (color) {
-          document.documentElement.style.setProperty('--accent', color);
-          // Update glow to match accent with low opacity
-          const hex = color.replace('#', '');
-          const r = parseInt(hex.slice(0, 2), 16);
-          const g = parseInt(hex.slice(2, 4), 16);
-          const b = parseInt(hex.slice(4, 6), 16);
-          document.documentElement.style.setProperty('--glow', `rgba(${r},${g},${b},0.12)`);
-        } else {
-          document.documentElement.style.removeProperty('--accent');
-          document.documentElement.style.removeProperty('--glow');
-        }
-        document.querySelectorAll('.font-color-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
-
-    // Reset accent color when theme changes
-    document.querySelectorAll('.theme-option').forEach(opt => {
-      opt.addEventListener('click', () => {
-        document.documentElement.style.removeProperty('--accent');
-        document.documentElement.style.removeProperty('--glow');
-        document.querySelectorAll('.font-color-btn').forEach(b => b.classList.remove('active'));
-        document.querySelector('.font-color-btn[data-color=""]')?.classList.add('active');
-      });
-    });
-
-// ══════════════════════════════════════════
-// // PROJECT SLIDER
-// ══════════════════════════════════════════
-  let projCurrent = 0;
-  const projTotal = 4;
-
-  function projGoTo(idx) {
-    projCurrent = Math.max(0, Math.min(projTotal - 1, idx));
-    const track = document.getElementById('projTrack');
-    if (!track) return;
-
-    // Slide the track
-    track.style.transform = `translateX(-${projCurrent * 25}%)`;
-
-    // Progress bar
-    const bar = document.getElementById('projProgress');
-    if (bar) bar.style.width = ((projCurrent + 1) / projTotal * 100) + '%';
-
-    // Dots
-    document.querySelectorAll('.proj-dot').forEach((d, i) => d.classList.toggle('active', i === projCurrent));
-
-    // Arrow states
-    const prev = document.getElementById('projPrev');
-    const next = document.getElementById('projNext');
-    if (prev) prev.disabled = projCurrent === 0;
-    if (next) next.disabled = projCurrent === projTotal - 1;
-
-    // Animate content in the new active slide
-    const slides = track.querySelectorAll('.proj-slide-inner');
-    slides.forEach((s, i) => {
-      s.classList.remove('animating');
-      if (i === projCurrent) {
-        void s.offsetWidth; // force reflow
-        s.classList.add('animating');
-      }
-    });
-
-    // Trigger animated bars on slide 2
-    if (projCurrent === 1) {
-      setTimeout(() => {
-        document.querySelectorAll('.pba-bar').forEach(b => b.classList.add('animated'));
-      }, 100);
-    }
-  }
-
-  function projMove(dir) { projGoTo(projCurrent + dir); }
-
-  // Keyboard navigation
-  document.addEventListener('keydown', e => {
-    const slider = document.querySelector('.proj-slider-wrap');
-    if (!slider) return;
-    if (e.key === 'ArrowLeft')  projMove(-1);
-    if (e.key === 'ArrowRight') projMove(1);
-  });
-
-  // Touch / swipe support
-  (function(){
-    const outer = document.querySelector('.proj-track-outer');
-    if (!outer) return;
-    let startX = 0;
-    outer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
-    outer.addEventListener('touchend',   e => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) projMove(dx < 0 ? 1 : -1);
-    });
-  })();
-
-  // Auto-play every 5 seconds
-  let projAutoPlay = setInterval(() => {
-    projGoTo(projCurrent < projTotal - 1 ? projCurrent + 1 : 0);
-  }, 5000);
-
-  // Pause on hover
-  const sliderEl = document.querySelector('.proj-slider-wrap');
-  if (sliderEl) {
-    sliderEl.addEventListener('mouseenter', () => clearInterval(projAutoPlay));
-    sliderEl.addEventListener('mouseleave', () => {
-      projAutoPlay = setInterval(() => {
-        projGoTo(projCurrent < projTotal - 1 ? projCurrent + 1 : 0);
-      }, 5000);
-    });
-  }
-
-  // Init slider
-  projGoTo(0);
-
-  // ══════════════════════════════════════════
-  // PROJECT DETAIL MODAL
-  // ══════════════════════════════════════════
-  const projDetails = [
-    {
-      title: 'Customer Churn Prediction Engine',
-      img: 'Images/Customer Churn Prediction Engine.png',
-      tags: ['E-Commerce','XGBoost','Python','Sklearn','SQL'],
-      summary: 'Built a production-grade churn prediction system for a fast-growing D2C brand processing 2M+ customer records. The model runs nightly, scores every active customer, and feeds directly into the CRM to trigger personalised retention workflows.',
-      stats: [{val:'↓ 40%',lbl:'Churn Reduction'},{val:'₹1.8Cr',lbl:'Saved Monthly'},{val:'94%',lbl:'Precision'}],
-      problem: 'The client was losing ~8.4% of their customer base monthly with no early-warning system. Retention efforts were reactive and untargeted, wasting budget on low-risk customers while high-risk ones slipped away.',
-      steps: [
-        'Extracted 18 months of transaction, session, and support ticket data from 5 disparate sources into a unified feature table (dbt + BigQuery).',
-        'Feature engineering: RFM scores, inter-purchase gap trends, support sentiment, browse-to-buy ratio — 47 features total.',
-        'Trained XGBoost with SMOTE oversampling to handle 8:1 class imbalance. Tuned threshold at F1 optimum, not 0.5.',
-        'Built SHAP explainability layer so the CRM team could understand why each customer was flagged.',
-        'Deployed as a daily Cloud Run job → writes scores to CRM → triggers segmented email/SMS flows automatically.',
-      ],
-      stack: ['Python','XGBoost','SMOTE','SHAP','BigQuery','dbt','Cloud Run','Looker Studio'],
-    },
-    {
-      title: 'Transaction Fraud Dashboard',
-      img:'Images/transaction fraud.png',
-      tags: ['Fintech','Power BI','SQL','DAX','Real-time'],
-      summary: 'Designed and built a real-time fraud monitoring system for a fintech startup processing 200K+ daily transactions across UPI, card, and wallet rails. Replaced a rule-based system that was catching only 1 in 3 fraud cases.',
-      stats: [{val:'3×',lbl:'Detection Rate'},{val:'200K+',lbl:'Daily Txns'},{val:'99.2%',lbl:'Uptime'}],
-      problem: 'The legacy rule-based system flagged only high-confidence cases and had a 72-hour review lag. Fraud patterns were evolving faster than rules could be updated.',
-      steps: [
-        'Mapped all transaction data streams (PostgreSQL + Kafka) into a single Power BI dataflow refreshing every 90 seconds.',
-        'Built a custom DAX anomaly detection layer — rolling z-score per merchant category, time-of-day distribution shifts, velocity checks.',
-        'Designed a 4-panel dashboard: live feed, merchant risk heatmap, user velocity chart, and alert queue with drill-through.',
-        'Integrated alert webhooks into Slack — ops team gets notified within 2 minutes of a pattern trigger.',
-        'Reduced mean-time-to-review from 72 hours to 18 minutes post-launch.',
-      ],
-      stack: ['Power BI','DAX','PostgreSQL','Kafka','Python','Slack API','Azure Data Factory'],
-    },
-    {
-      title: 'Checkout Funnel Optimisation',
-      img: 'Images/Checkout Funnel Optimisation.png',
-      tags: ['SaaS','A/B Testing','Python','Statistics','Mixpanel'],
-      summary: 'Led end-to-end experiment design and analysis for a 4-week A/B test on the checkout flow of a B2B SaaS product. Identified three critical friction points and quantified the revenue impact of each fix.',
-      stats: [{val:'+2.1pp',lbl:'Conversion Lift'},{val:'₹60L',lbl:'Quarterly ARR'},{val:'97%',lbl:'Confidence'}],
-      problem: 'Conversion rate had plateaued at 4.1% for 3 quarters. Product and growth teams had competing hypotheses but no rigorous way to test them simultaneously.',
-      steps: [
-        'Ran funnel analysis in Mixpanel across 90 days of session data — identified 3 statistically significant drop-off points at address form, promo code field, and payment method selection.',
-        'Designed a multi-arm A/B test (3 variants + control) with power analysis to determine minimum 2-week runtime at 80% power.',
-        'Built a Bayesian inference pipeline in Python (PyMC) to get probability-of-being-best, not just p-values.',
-        'Variant C (simplified payment step + address autocomplete + removed promo code prominence) won with 97% confidence.',
-        'Rolled out to 100% — conversion moved from 4.1% → 6.2%, generating ₹60L additional ARR in Q3.',
-      ],
-      stack: ['Python','PyMC','Mixpanel','SQL','Statsmodels','Pandas','Tableau'],
-    },
-    {
-      title: 'Customer Segmentation Model',
-      img: 'Images/Customer Segmentation Model.png',
-      tags: ['Segmentation','K-means','Python','Tableau','Marketing'],
-      summary: 'Applied K-means clustering to 500K customer records to discover natural behavioural segments that the company had been treating as a homogeneous mass. The segments reshaped the entire Q4 marketing strategy.',
-      stats: [{val:'+23%',lbl:'Marketing ROI'},{val:'500K',lbl:'Records'},{val:'4',lbl:'Segments Found'}],
-      problem: 'The marketing team was blasting the same messaging to all customers and seeing declining ROI. There was a hypothesis that different customer types existed but no data-backed definition.',
-      steps: [
-        'Engineered 22 features per customer: purchase frequency, average order value, category diversity, recency, seasonal patterns, support interactions, NPS score.',
-        'Determined optimal k=4 using elbow method + silhouette score. Validated cluster stability with 10× bootstrap resampling.',
-        'Profiled each segment: Enterprise Champions (60%), Growth SMBs (25%), At-Risk SMEs (15%), New Explorers — each with distinct LTV and behaviour.',
-        'Built Tableau dashboard for the marketing team showing segment migration over time and recommended messaging frameworks.',
-        'Q4 campaigns ran segment-specific creative — Enterprise got executive ROI reports, SMBs got quick-setup guides, At-Risk got re-engagement offers.',
-      ],
-      stack: ['Python','Scikit-learn','K-means','Pandas','Tableau','PostgreSQL','Excel'],
-    },
-  ];
-
-  function openProjDetail(idx) {
-    const d = projDetails[idx];
-    const modal = document.getElementById('projDetailModal');
-    const content = document.getElementById('pdmContent');
-    if (!modal || !content) return;
-
-    const stepsHTML = d.steps.map((s,i) => `
-      <div class="pdm-step">
-        <div class="pdm-step-num">0${i+1}</div>
-        <div class="pdm-step-text">${s}</div>
-      </div>`).join('');
-
-    const statsHTML = d.stats.map(s => `
-      <div class="pdm-stat-card">
-        <div class="val">${s.val}</div>
-        <div class="lbl">${s.lbl}</div>
-      </div>`).join('');
-
-    const tagsHTML = d.tags.map(t => `<span class="pdm-tag">${t}</span>`).join('');
-    const stackHTML = d.stack.map(s => `<span class="pdm-stack-item">${s}</span>`).join('');
-
-    content.innerHTML = `
-      <img class="pdm-hero" src="${d.img}" alt="${d.title}" loading="lazy"/>
-      <div class="pdm-body">
-        <div class="pdm-meta">${tagsHTML}</div>
-        <h2 class="pdm-title">${d.title}</h2>
-        <p class="pdm-text">${d.summary}</p>
-        <div class="pdm-stats">${statsHTML}</div>
-        <div class="pdm-section-label">The Problem</div>
-        <p class="pdm-text">${d.problem}</p>
-        <div class="pdm-section-label">How I solved it</div>
-        <div class="pdm-steps">${stepsHTML}</div>
-        <div class="pdm-section-label">Tech Stack</div>
-        <div class="pdm-stack">${stackHTML}</div>
-      </div>`;
-
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    document.getElementById('pdmInner').scrollTop = 0;
-  }
-
-  function closeProjDetail() {
-    document.getElementById('projDetailModal')?.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.getElementById('projDetailModal')?.addEventListener('click', e => {
-    if (e.target === document.getElementById('projDetailModal')) closeProjDetail();
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProjDetail(); });
-
-  </script>
-</body>
-
-</html>
+        document.documentElement.setAttribute('data-them
