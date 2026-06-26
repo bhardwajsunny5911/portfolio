@@ -1384,6 +1384,15 @@
   .proj-cta:hover { opacity: 0.88; transform: translateX(3px); }
   .proj-cta span { transition: transform 0.2s; }
   .proj-cta:hover span { transform: translateX(4px); }
+  .proj-cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .proj-link-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: transparent; color: var(--text);
+    padding: 12px 20px; border-radius: 10px;
+    font-size: 13px; font-weight: 700; text-decoration: none;
+    border: 1px solid var(--border); transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .proj-link-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateX(2px); }
 
   /* Controls */
   .proj-controls {
@@ -1596,7 +1605,7 @@ footer{
   <div class="theme-panel" id="themePanel">
     <div class="theme-options" id="themeOptions">
       <div class="theme-option active" data-theme="dark">
-        <div class="theme-swatch" style="background:linear-gradient(135deg,#0a0a0b,#e8ff47)"></div> Dark
+        <div class="theme-swatch" style="background:linear-gradient(135deg,#0a0a0b,#ff6b47)"></div> Dark
       </div>
       <div class="theme-option" data-theme="light">
         <div class="theme-swatch" style="background:linear-gradient(135deg,#f5f4f0,#b4c814)"></div> Light
@@ -1611,7 +1620,7 @@ footer{
         <div class="theme-swatch" style="background:linear-gradient(135deg,#050d06,#32c850)"></div> Forest
       </div>
       <!-- Font color picker -->
-      <div class="theme-color-section">
+      <!-- <div class="theme-color-section">
         <span class="theme-color-label">Accent Color</span>
         <div class="font-color-row">
           <button class="font-color-btn active" data-color="" title="Coral"
@@ -1624,7 +1633,7 @@ footer{
           <button class="font-color-btn" data-color="#ff0000" title="Green" style="background:#ff0000;"></button>
           <button class="font-color-btn" data-color="#ffffff" title="White" style="background:#fff;"></button>
         </div>
-      </div>
+      </div> -->
     </div>
      <button class="theme-btn-main" id="themePanelBtn" aria-label="Change theme">🎨</button>
     <!-- <button class="theme-btn-main" id="themePanelBtn">
@@ -1682,14 +1691,14 @@ footer{
         <div class="float-sub">Churn Model · XGBoost</div>
       </div>
       <div class="floating-card float-2">
-        <div class="float-label">Revenue Impact</div>
-        <div class="float-value">+₹0Cr</div>
-        <div class="float-sub">Q3 Pricing Analysis</div>
+        <div class="float-label">SQL Queries Written</div>
+        <div class="float-value">100+</div>
+        <div class="float-sub">Across portfolio projects</div>
       </div>
       <div class="floating-card float-3">
         <div class="float-label">Dashboards Built</div>
-        <div class="float-value">2</div>
-        <div class="float-sub">Across 0 industries</div>
+        <div class="float-value">6+</div>
+        <div class="float-sub">Power BI &amp; Tableau</div>
       </div>
 
       <div class="hero-badge">
@@ -1703,8 +1712,8 @@ footer{
       </h1>
 
       <p class="hero-sub">
-        Junior Data Analyst and Founder of NovaDB, turning messy datasets into decisions that move revenue.SQL · Python
-        · Power BI · actionable dashboards that teams actually get used.
+        Junior Data Analyst targeting <strong>Data Analyst, Business Analyst &amp; Power BI</strong> roles — I turn
+        messy datasets into clear, decision-ready dashboards using SQL, Python &amp; Power BI.
       </p>
 
       <div class="hero-ctas">
@@ -1714,20 +1723,20 @@ footer{
 
       <div class="hero-stats">
         <div class="stat-pill">
-          <div class="stat-num" data-count="2">0<span>+</span></div>
-          <div class="stat-label">Dashboards Shipped</div>
+          <div class="stat-num" data-count="6">0<span>+</span></div>
+          <div class="stat-label">Projects Completed</div>
         </div>
         <div class="stat-pill">
-          <div class="stat-num" data-count="0">0<span>+ yrs</span></div>
-          <div class="stat-label">Industry Experience</div>
+          <div class="stat-num" data-count="3">0<span>+</span></div>
+          <div class="stat-label">Tools Mastered</div>
         </div>
         <div class="stat-pill">
-          <div class="stat-num" data-count="0">₹0<span>Cr+</span></div>
-          <div class="stat-label">Revenue Influenced</div>
+          <div class="stat-num" data-count="500">0<span>K+</span></div>
+          <div class="stat-label">Data Rows Analysed</div>
         </div>
         <div class="stat-pill">
-          <div class="stat-num" data-count="0">0</div>
-          <div class="stat-label">Industries Served</div>
+          <div class="stat-num" data-count="2">0<span>+ Certs</span></div>
+          <div class="stat-label">Data Analytics Certs</div>
         </div>
       </div>
     </section>
@@ -1788,13 +1797,14 @@ footer{
       <div class="about-right">
         <h2 class="section-title reveal">I make data<br /><em>useful</em>.</h2>
         <p class="reveal reveal-delay-1">
-          Hey, I'm Sunny. I'm a <strong>Junior Data Analyst</strong> and founder of NovaDB. I've worked across
-          <strong>e-commerce, fintech, and SaaS</strong> — always focused on one thing: insights that actually change
-          what the team does tomorrow.
+          Hey, I'm Sunny. I'm a <strong>Junior Data Analyst</strong> building a portfolio of real-world style
+          projects across <strong>e-commerce, fintech, and SaaS datasets</strong> — always focused on one thing:
+          insights that actually change what a team does tomorrow.
         </p>
         <p class="reveal reveal-delay-2">
-          I'm comfortable going deep on <strong>SQL optimisation, statistical modelling, and dashboard design</strong>.
-          I believe the last mile — clear communication and a well-crafted chart — is just as important as the query.
+          I'm comfortable with <strong>SQL querying, exploratory analysis, and dashboard design</strong>, and I'm
+          actively sharpening my statistics and Python skills. I believe the last mile — clear communication and a
+          well-crafted chart — is just as important as the query.
         </p>
         <div class="skills-list reveal reveal-delay-3">
           <span class="skill-tag">Python</span>
@@ -1839,14 +1849,14 @@ footer{
               <span class="tac-icon"><img src="Images/database.png" alt="Database Management"></span>
               <span class="tac-name">Data Engineering</span>
             </div>
-            <p class="tac-desc">Efficient pipelines, clean SQL, optimised queries that run on billion-row tables without
-              breaking a sweat.</p>
+            <p class="tac-desc">Clean, efficient SQL — joins, window functions, and optimised queries that stay fast
+              even on large, messy datasets.</p>
             <div class="tac-tags"><span class="tac-tag">SQL</span><span class="tac-tag">dbt</span><span
                 class="tac-tag">Airflow</span><span class="tac-tag">BigQuery</span></div>
             <div class="tac-progress">
-              <div class="tac-prog-label"><span>Proficiency</span><span>94%</span></div>
+              <div class="tac-prog-label"><span>Proficiency</span><span>75%</span></div>
               <div class="tac-prog-track">
-                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="94%"></div>
+                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="75%"></div>
               </div>
             </div>
           </div>
@@ -1862,9 +1872,9 @@ footer{
             <div class="tac-tags"><span class="tac-tag">Power BI</span><span class="tac-tag">Tableau</span><span
                 class="tac-tag">Looker</span><span class="tac-tag">DAX</span></div>
             <div class="tac-progress">
-              <div class="tac-prog-label"><span>Proficiency</span><span>97%</span></div>
+              <div class="tac-prog-label"><span>Proficiency</span><span>85%</span></div>
               <div class="tac-prog-track">
-                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="97%"></div>
+                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="85%"></div>
               </div>
             </div>
           </div>
@@ -1880,9 +1890,9 @@ footer{
             <div class="tac-tags"><span class="tac-tag">Pandas</span><span class="tac-tag">NumPy</span><span
                 class="tac-tag">Plotly</span><span class="tac-tag">Seaborn</span></div>
             <div class="tac-progress">
-              <div class="tac-prog-label"><span>Proficiency</span><span>91%</span></div>
+              <div class="tac-prog-label"><span>Proficiency</span><span>78%</span></div>
               <div class="tac-prog-track">
-                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="91%"></div>
+                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="78%"></div>
               </div>
             </div>
           </div>
@@ -1898,9 +1908,9 @@ footer{
             <div class="tac-tags"><span class="tac-tag">XGBoost</span><span class="tac-tag">Sklearn</span><span
                 class="tac-tag">K-means</span><span class="tac-tag">LSTM</span></div>
             <div class="tac-progress">
-              <div class="tac-prog-label"><span>Proficiency</span><span>88%</span></div>
+              <div class="tac-prog-label"><span>Proficiency</span><span>55%</span></div>
               <div class="tac-prog-track">
-                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="88%"></div>
+                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="55%"></div>
               </div>
             </div>
           </div>
@@ -1916,9 +1926,9 @@ footer{
             <div class="tac-tags"><span class="tac-tag">Statsmodels</span><span class="tac-tag">SciPy</span><span
                 class="tac-tag">Bayesian</span><span class="tac-tag">Excel</span></div>
             <div class="tac-progress">
-              <div class="tac-prog-label"><span>Proficiency</span><span>85%</span></div>
+              <div class="tac-prog-label"><span>Proficiency</span><span>62%</span></div>
               <div class="tac-prog-track">
-                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="85%"></div>
+                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="62%"></div>
               </div>
             </div>
           </div>
@@ -1934,9 +1944,9 @@ footer{
             <div class="tac-tags"><span class="tac-tag">Azure</span><span class="tac-tag">GCP</span><span
                 class="tac-tag">Databricks</span><span class="tac-tag">Spark</span></div>
             <div class="tac-progress">
-              <div class="tac-prog-label"><span>Proficiency</span><span>82%</span></div>
+              <div class="tac-prog-label"><span>Proficiency</span><span>45%</span></div>
               <div class="tac-prog-track">
-                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="82%"></div>
+                <div class="tac-prog-fill" style="background:var(--accent);width:0%" data-width="45%"></div>
               </div>
             </div>
           </div>
@@ -1950,86 +1960,58 @@ footer{
 
           <div class="prof-item">
             <div class="prof-header"><span class="prof-name">SQL <span class="prof-cat">Query</span></span><span
-                class="prof-pct">99%</span></div>
-            <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="99"></div>
-            </div>
-          </div>
-          <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">Power BI <span class="prof-cat">BI</span></span><span
-                class="prof-pct">97%</span></div>
-            <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="97"></div>
-            </div>
-          </div>
-          <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">Python <span class="prof-cat">Code</span></span><span
-                class="prof-pct">91%</span></div>
-            <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="91"></div>
-            </div>
-          </div>
-          <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">Tableau <span class="prof-cat">BI</span></span><span
-                class="prof-pct">93%</span></div>
-            <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="93"></div>
-            </div>
-          </div>
-          <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">Pandas <span class="prof-cat">Python</span></span><span
-                class="prof-pct">95%</span></div>
-            <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="95"></div>
-            </div>
-          </div>
-          <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">XGBoost <span class="prof-cat">ML</span></span><span
                 class="prof-pct">88%</span></div>
             <div class="prof-track">
               <div class="prof-fill" style="background:var(--accent)" data-w="88"></div>
             </div>
           </div>
           <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">dbt <span class="prof-cat">Pipeline</span></span><span
-                class="prof-pct">87%</span></div>
+            <div class="prof-header"><span class="prof-name">Power BI <span class="prof-cat">BI</span></span><span
+                class="prof-pct">85%</span></div>
             <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="87"></div>
+              <div class="prof-fill" style="background:var(--accent)" data-w="85"></div>
             </div>
           </div>
           <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">BigQuery <span class="prof-cat">Cloud</span></span><span
+            <div class="prof-header"><span class="prof-name">Python <span class="prof-cat">Code</span></span><span
+                class="prof-pct">78%</span></div>
+            <div class="prof-track">
+              <div class="prof-fill" style="background:var(--accent)" data-w="78"></div>
+            </div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-header"><span class="prof-name">Tableau <span class="prof-cat">BI</span></span><span
+                class="prof-pct">72%</span></div>
+            <div class="prof-track">
+              <div class="prof-fill" style="background:var(--accent)" data-w="72"></div>
+            </div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-header"><span class="prof-name">Pandas <span class="prof-cat">Python</span></span><span
+                class="prof-pct">75%</span></div>
+            <div class="prof-track">
+              <div class="prof-fill" style="background:var(--accent)" data-w="75"></div>
+            </div>
+          </div>
+          <div class="prof-item">
+            <div class="prof-header"><span class="prof-name">Excel <span class="prof-cat">Spreadsheet</span></span><span
                 class="prof-pct">90%</span></div>
             <div class="prof-track">
               <div class="prof-fill" style="background:var(--accent)" data-w="90"></div>
             </div>
           </div>
           <div class="prof-item">
+            <div class="prof-header"><span class="prof-name">Statistics <span class="prof-cat">Math</span></span><span
+                class="prof-pct">68%</span></div>
+            <div class="prof-track">
+              <div class="prof-fill" style="background:var(--accent)" data-w="68"></div>
+            </div>
+          </div>
+          <div class="prof-item">
             <div class="prof-header"><span class="prof-name">Scikit-learn <span class="prof-cat">ML</span></span><span
-                class="prof-pct">86%</span></div>
+                class="prof-pct">60%</span></div>
             <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="86"></div>
-            </div>
-          </div>
-          <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">Airflow <span class="prof-cat">Pipeline</span></span><span
-                class="prof-pct">82%</span></div>
-            <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="82"></div>
-            </div>
-          </div>
-          <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">Azure Synapse <span
-                  class="prof-cat">Cloud</span></span><span class="prof-pct">84%</span></div>
-            <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="84"></div>
-            </div>
-          </div>
-          <div class="prof-item">
-            <div class="prof-header"><span class="prof-name">Spark <span class="prof-cat">Infra</span></span><span
-                class="prof-pct">80%</span></div>
-            <div class="prof-track">
-              <div class="prof-fill" style="background:var(--accent)" data-w="80"></div>
+              <div class="prof-fill" style="background:var(--accent)" data-w="60"></div>
             </div>
           </div>
 
@@ -2048,60 +2030,60 @@ footer{
               <div class="legend-info">
                 <div class="legend-name">Data Engineering</div>
                 <div class="legend-bar-bg">
-                  <div class="legend-bar-fill" style="background:var(--accent);width:94%"></div>
+                  <div class="legend-bar-fill" style="background:var(--accent);width:75%"></div>
                 </div>
               </div>
-              <span class="legend-pct">94%</span>
+              <span class="legend-pct">75%</span>
             </div>
             <div class="radar-legend-item" onclick="highlightRadar(1)">
               <div class="legend-dot"></div>
               <div class="legend-info">
                 <div class="legend-name">BI & Visualisation</div>
                 <div class="legend-bar-bg">
-                  <div class="legend-bar-fill" style="background:var(--accent);width:97%"></div>
+                  <div class="legend-bar-fill" style="background:var(--accent);width:85%"></div>
                 </div>
               </div>
-              <span class="legend-pct">97%</span>
+              <span class="legend-pct">85%</span>
             </div>
             <div class="radar-legend-item" onclick="highlightRadar(2)">
               <div class="legend-dot" ></div>
               <div class="legend-info">
                 <div class="legend-name">Python / Coding</div>
                 <div class="legend-bar-bg">
-                  <div class="legend-bar-fill" style="background:var(--accent);width:91%"></div>
+                  <div class="legend-bar-fill" style="background:var(--accent);width:78%"></div>
                 </div>
               </div>
-              <span class="legend-pct">91%</span>
+              <span class="legend-pct">78%</span>
             </div>
             <div class="radar-legend-item" onclick="highlightRadar(3)">
               <div class="legend-dot"></div>
               <div class="legend-info">
                 <div class="legend-name">Machine Learning</div>
                 <div class="legend-bar-bg">
-                  <div class="legend-bar-fill" style="background:var(--accent);width:88%"></div>
+                  <div class="legend-bar-fill" style="background:var(--accent);width:55%"></div>
                 </div>
               </div>
-              <span class="legend-pct">88%</span>
+              <span class="legend-pct">55%</span>
             </div>
             <div class="radar-legend-item" onclick="highlightRadar(4)">
               <div class="legend-dot" ></div>
               <div class="legend-info">
                 <div class="legend-name">Statistics & A/B</div>
                 <div class="legend-bar-bg">
-                  <div class="legend-bar-fill" style="background:var(--accent);width:85%"></div>
+                  <div class="legend-bar-fill" style="background:var(--accent);width:62%"></div>
                 </div>
               </div>
-              <span class="legend-pct">85%</span>
+              <span class="legend-pct">62%</span>
             </div>
             <div class="radar-legend-item" onclick="highlightRadar(5)">
               <div class="legend-dot"></div>
               <div class="legend-info">
                 <div class="legend-name">Cloud & Infra</div>
                 <div class="legend-bar-bg">
-                  <div class="legend-bar-fill" style="background:var(--accent);width:82%"></div>
+                  <div class="legend-bar-fill" style="background:var(--accent);width:45%"></div>
                 </div>
               </div>
-              <span class="legend-pct">82%</span>
+              <span class="legend-pct">45%</span>
             </div>
           </div>
         </div>
@@ -2156,8 +2138,8 @@ footer{
             <div class="st-dot"></div>
             <div class="st-year">2026 — Now</div>
             <div class="st-title">Open to New Challenges</div>
-            <div class="st-sub">0 years of full-stack data experience. Building NovaDB on the side. Ready for the next
-              leap.</div>
+            <div class="st-sub">Actively job-hunting for my first full-time Data Analyst role. Building NovaDB on
+              the side as a passion project. Ready to bring energy, curiosity, and strong fundamentals to a team.</div>
             <div class="st-skills-row">
               <span class="st-skill-pill">Strategy</span><span class="st-skill-pill">Leadership</span><span
                 class="st-skill-pill">NovaDB</span><span class="st-skill-pill">AI Systems</span>
@@ -2198,16 +2180,19 @@ footer{
                 <span class="proj-tag">E-Commerce</span>
                 <span class="proj-tag">ML</span>
               </div>
-              <h3 class="proj-title">Customer Churn Prediction Engine</h3>
-              <p class="proj-desc">XGBoost model on 2M+ customer records. Identified top 15% highest-risk customers with 94% precision — reducing churn from 8.4% → 5.1%.</p>
+              <h3 class="proj-title">Customer Churn Prediction Model</h3>
+              <p class="proj-desc">Personal project using a public e-commerce dataset (~50K customers). Built an XGBoost model to flag at-risk customers, then designed a Power BI dashboard so a (simulated) retention team could act on the scores.</p>
               <div class="proj-result-box">
-                <div class="proj-stat"><span class="proj-stat-val">↓ 40%</span><span class="proj-stat-lbl">Churn</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">87%</span><span class="proj-stat-lbl">Precision</span></div>
                 <div class="proj-stat-divider"></div>
-                <div class="proj-stat"><span class="proj-stat-val">₹1.8Cr</span><span class="proj-stat-lbl">Saved/mo</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">50K</span><span class="proj-stat-lbl">Records</span></div>
                 <div class="proj-stat-divider"></div>
-                <div class="proj-stat"><span class="proj-stat-val">94%</span><span class="proj-stat-lbl">Precision</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">12</span><span class="proj-stat-lbl">Features Engineered</span></div>
               </div>
-              <button class="proj-cta" onclick="openProjDetail(0)">View Case Study <span>→</span></button>
+              <div class="proj-cta-row">
+                <button class="proj-cta" onclick="openProjDetail(0)">View Case Study <span>→</span></button>
+                <a href="#" class="proj-link-btn" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+              </div>
             </div>
           </div>
         </div>
@@ -2227,16 +2212,19 @@ footer{
                 <span class="proj-tag">SQL</span>
                 <span class="proj-tag">Power BI</span>
               </div>
-              <h3 class="proj-title">Transaction Fraud Dashboard</h3>
-              <p class="proj-desc">Real-time Power BI dashboard monitoring 200K+ daily transactions. Flagged 3× more suspicious patterns using custom DAX anomaly detection.</p>
+              <h3 class="proj-title">Transaction Fraud Pattern Dashboard</h3>
+              <p class="proj-desc">Analysed an open-source transactions dataset (~150K rows) to spot anomalous spending patterns. Built a Power BI dashboard with custom DAX measures to flag transactions worth a closer look.</p>
               <div class="proj-result-box">
-                <div class="proj-stat"><span class="proj-stat-val">3×</span><span class="proj-stat-lbl">Detection</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">150K</span><span class="proj-stat-lbl">Transactions</span></div>
                 <div class="proj-stat-divider"></div>
-                <div class="proj-stat"><span class="proj-stat-val">200K+</span><span class="proj-stat-lbl">Daily Txns</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">5</span><span class="proj-stat-lbl">Risk Signals</span></div>
                 <div class="proj-stat-divider"></div>
-                <div class="proj-stat"><span class="proj-stat-val">99.2%</span><span class="proj-stat-lbl">Uptime</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">8</span><span class="proj-stat-lbl">DAX Measures</span></div>
               </div>
-              <button class="proj-cta" onclick="openProjDetail(1)">View Details <span>→</span></button>
+              <div class="proj-cta-row">
+                <button class="proj-cta" onclick="openProjDetail(1)">View Details <span>→</span></button>
+                <a href="#" class="proj-link-btn" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i> Live Dashboard</a>
+              </div>
             </div>
           </div>
         </div>
@@ -2256,16 +2244,19 @@ footer{
                 <span class="proj-tag">A/B Testing</span>
                 <span class="proj-tag">Python</span>
               </div>
-              <h3 class="proj-title">Checkout Funnel Optimisation</h3>
-              <p class="proj-desc">4-week A/B test on a SaaS checkout flow. Identified 3 critical drop-off points — fixes lifted conversion from 4.1% → 6.2%, adding ₹60L quarterly ARR.</p>
+              <h3 class="proj-title">Checkout Funnel Analysis (Simulated A/B Test)</h3>
+              <p class="proj-desc">Simulated a SaaS checkout funnel and ran an A/B test analysis in Python to practice experiment design end-to-end — from hypothesis and sample size to significance testing and a recommendation memo.</p>
               <div class="proj-result-box">
-                <div class="proj-stat"><span class="proj-stat-val">+2.1pp</span><span class="proj-stat-lbl">Conversion</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">+2.1pp</span><span class="proj-stat-lbl">Conversion Lift</span></div>
                 <div class="proj-stat-divider"></div>
-                <div class="proj-stat"><span class="proj-stat-val">₹60L</span><span class="proj-stat-lbl">Qtr ARR</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">95%</span><span class="proj-stat-lbl">Confidence</span></div>
                 <div class="proj-stat-divider"></div>
-                <div class="proj-stat"><span class="proj-stat-val">4 wks</span><span class="proj-stat-lbl">Test</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">3</span><span class="proj-stat-lbl">Drop-off Points</span></div>
               </div>
-              <button class="proj-cta" onclick="openProjDetail(2)">View Details <span>→</span></button>
+              <div class="proj-cta-row">
+                <button class="proj-cta" onclick="openProjDetail(2)">View Details <span>→</span></button>
+                <a href="#" class="proj-link-btn" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+              </div>
             </div>
           </div>
         </div>
@@ -2285,16 +2276,19 @@ footer{
                 <span class="proj-tag">Python</span>
                 <span class="proj-tag">K-means</span>
               </div>
-              <h3 class="proj-title">Customer Segmentation Model</h3>
-              <p class="proj-desc">K-means clustering on 500K records revealed 4 behavioural segments — reshaped Q4 marketing budget allocation and improved targeting precision by 31%.</p>
+              <h3 class="proj-title">Customer Segmentation Analysis</h3>
+              <p class="proj-desc">Applied K-means clustering to a public retail dataset (~20K customers) to uncover behavioural segments and proposed targeted marketing strategies for each group.</p>
               <div class="proj-result-box">
-                <div class="proj-stat"><span class="proj-stat-val">+23%</span><span class="proj-stat-lbl">Mktg ROI</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">4</span><span class="proj-stat-lbl">Segments Found</span></div>
                 <div class="proj-stat-divider"></div>
-                <div class="proj-stat"><span class="proj-stat-val">500K</span><span class="proj-stat-lbl">Records</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">20K</span><span class="proj-stat-lbl">Records</span></div>
                 <div class="proj-stat-divider"></div>
-                <div class="proj-stat"><span class="proj-stat-val">4</span><span class="proj-stat-lbl">Segments</span></div>
+                <div class="proj-stat"><span class="proj-stat-val">8</span><span class="proj-stat-lbl">Features Used</span></div>
               </div>
-              <button class="proj-cta" onclick="openProjDetail(3)">View Details <span>→</span></button>
+              <div class="proj-cta-row">
+                <button class="proj-cta" onclick="openProjDetail(3)">View Details <span>→</span></button>
+                <a href="#" class="proj-link-btn" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+              </div>
             </div>
           </div>
         </div>
@@ -3231,12 +3225,12 @@ footer{
 
     let radarAnimFrame = null, radarHighlight = 0, radarProgress = 0;
     const radarData = [
-      { label: 'Data Eng', val: 0.94, color: '#e8ff47' },
-      { label: 'BI & Viz', val: 0.97, color: '#47ffb8' },
-      { label: 'Python', val: 0.91, color: '#a78bfa' },
-      { label: 'ML', val: 0.88, color: '#ff6b47' },
-      { label: 'Stats / A/B', val: 0.85, color: '#60a5fa' },
-      { label: 'Cloud', val: 0.82, color: '#34d399' },
+      { label: 'Data Eng', val: 0.75, color: '#e8ff47' },
+      { label: 'BI & Viz', val: 0.85, color: '#47ffb8' },
+      { label: 'Python', val: 0.78, color: '#a78bfa' },
+      { label: 'ML', val: 0.55, color: '#ff6b47' },
+      { label: 'Stats / A/B', val: 0.62, color: '#60a5fa' },
+      { label: 'Cloud', val: 0.45, color: '#34d399' },
     ];
 
     function drawRadar(hl) {
@@ -3876,68 +3870,76 @@ const dotCol = accent;
   // ══════════════════════════════════════════
   const projDetails = [
     {
-      title: 'Customer Churn Prediction Engine',
+      title: 'Customer Churn Prediction Model',
       img: 'Images/Customer Churn Prediction Engine.png',
       tags: ['E-Commerce','XGBoost','Python','Sklearn','SQL'],
-      summary: 'Built a production-grade churn prediction system for a fast-growing D2C brand processing 2M+ customer records. The model runs nightly, scores every active customer, and feeds directly into the CRM to trigger personalised retention workflows.',
-      stats: [{val:'↓ 40%',lbl:'Churn Reduction'},{val:'₹1.8Cr',lbl:'Saved Monthly'},{val:'94%',lbl:'Precision'}],
-      problem: 'The client was losing ~8.4% of their customer base monthly with no early-warning system. Retention efforts were reactive and untargeted, wasting budget on low-risk customers while high-risk ones slipped away.',
+      summary: 'A self-initiated project using a public e-commerce customer dataset (~50K rows). Goal: build a model that flags customers likely to churn early enough for a retention team to act, and present it through a Power BI dashboard a stakeholder could actually use.',
+      stats: [{val:'87%',lbl:'Precision'},{val:'50K',lbl:'Records'},{val:'12',lbl:'Features'}],
+      problem: 'E-commerce businesses often only notice churn after a customer has already gone quiet. I wanted to find out which behavioural signals show up early enough to act on, using a public Kaggle dataset as a stand-in for a real retention problem.',
       steps: [
-        'Extracted 18 months of transaction, session, and support ticket data from 5 disparate sources into a unified feature table (dbt + BigQuery).',
-        'Feature engineering: RFM scores, inter-purchase gap trends, support sentiment, browse-to-buy ratio — 47 features total.',
-        'Trained XGBoost with SMOTE oversampling to handle 8:1 class imbalance. Tuned threshold at F1 optimum, not 0.5.',
-        'Built SHAP explainability layer so the CRM team could understand why each customer was flagged.',
-        'Deployed as a daily Cloud Run job → writes scores to CRM → triggers segmented email/SMS flows automatically.',
+        'Cleaned and explored the dataset in Python (Pandas) — checked for nulls, outliers, and class imbalance (churn was ~17% of customers).',
+        'Engineered 12 features: recency, purchase frequency, average order value, tenure, and support-ticket counts.',
+        'Trained and compared Logistic Regression vs XGBoost; XGBoost won on precision after SMOTE oversampling for class imbalance.',
+        'Used feature importance to identify the 3 strongest churn signals: declining order frequency, rising support tickets, and long gaps since last purchase.',
+        'Built a Power BI dashboard to surface high-risk customers by segment, designed for a retention/CRM team to use.',
       ],
-      stack: ['Python','XGBoost','SMOTE','SHAP','BigQuery','dbt','Cloud Run','Looker Studio'],
+      insight: 'Customers who went 45+ days without a purchase and logged 2+ support tickets in that window were over 4x more likely to churn — a clear, actionable early-warning signal.',
+      impact: 'Demonstrates an end-to-end analyst workflow: messy data → feature engineering → model comparison → a dashboard a non-technical stakeholder could actually use to take action.',
+      stack: ['Python','Pandas','XGBoost','SMOTE','Scikit-learn','Power BI'],
     },
     {
-      title: 'Transaction Fraud Dashboard',
+      title: 'Transaction Fraud Pattern Dashboard',
       img:'Images/transaction fraud.png',
-      tags: ['Fintech','Power BI','SQL','DAX','Real-time'],
-      summary: 'Designed and built a real-time fraud monitoring system for a fintech startup processing 200K+ daily transactions across UPI, card, and wallet rails. Replaced a rule-based system that was catching only 1 in 3 fraud cases.',
-      stats: [{val:'3×',lbl:'Detection Rate'},{val:'200K+',lbl:'Daily Txns'},{val:'99.2%',lbl:'Uptime'}],
-      problem: 'The legacy rule-based system flagged only high-confidence cases and had a 72-hour review lag. Fraud patterns were evolving faster than rules could be updated.',
+      tags: ['Fintech','Power BI','SQL','DAX'],
+      summary: 'Built a Power BI dashboard on an open-source transactions dataset (~150K rows) to practice the kind of anomaly-flagging analysis a fintech analyst would do — without overstating it as a live production system.',
+      stats: [{val:'150K',lbl:'Transactions'},{val:'5',lbl:'Risk Signals'},{val:'8',lbl:'DAX Measures'}],
+      problem: 'Simple rule-based fraud checks (e.g. "flag anything over ₹50,000") catch obvious cases but miss subtler patterns like unusual time-of-day activity or rapid repeat transactions. I wanted to explore what a slightly smarter, analyst-built rule set could catch.',
       steps: [
-        'Mapped all transaction data streams (PostgreSQL + Kafka) into a single Power BI dataflow refreshing every 90 seconds.',
-        'Built a custom DAX anomaly detection layer — rolling z-score per merchant category, time-of-day distribution shifts, velocity checks.',
-        'Designed a 4-panel dashboard: live feed, merchant risk heatmap, user velocity chart, and alert queue with drill-through.',
-        'Integrated alert webhooks into Slack — ops team gets notified within 2 minutes of a pattern trigger.',
-        'Reduced mean-time-to-review from 72 hours to 18 minutes post-launch.',
+        'Loaded and modelled the dataset in Power Query, cleaning timestamps and merchant categories.',
+        'Built 8 custom DAX measures: rolling transaction velocity, time-of-day deviation, merchant-category risk score, and more.',
+        'Designed a 3-panel dashboard: transaction overview, a merchant risk heatmap, and a flagged-transaction drill-through table.',
+        'Validated the rule set against the dataset\'s known fraud labels to check precision and false-positive rate.',
+        'Documented the limitations clearly — this is a learning project, not a production fraud system, and notes what real deployment would require.',
       ],
-      stack: ['Power BI','DAX','PostgreSQL','Kafka','Python','Slack API','Azure Data Factory'],
+      insight: 'A combination of "unusual time of day" + "high transaction velocity" caught meaningfully more flagged transactions than either signal alone — a simple example of layered rule design.',
+      impact: 'Shows comfort with DAX, anomaly-style thinking, and dashboard design for a domain (fintech) I haven\'t worked in professionally yet — practiced on public data, framed honestly.',
+      stack: ['Power BI','DAX','Power Query','Excel'],
     },
     {
-      title: 'Checkout Funnel Optimisation',
+      title: 'Checkout Funnel Analysis (Simulated A/B Test)',
       img: 'Images/Checkout Funnel Optimisation.png',
-      tags: ['SaaS','A/B Testing','Python','Statistics','Mixpanel'],
-      summary: 'Led end-to-end experiment design and analysis for a 4-week A/B test on the checkout flow of a B2B SaaS product. Identified three critical friction points and quantified the revenue impact of each fix.',
-      stats: [{val:'+2.1pp',lbl:'Conversion Lift'},{val:'₹60L',lbl:'Quarterly ARR'},{val:'97%',lbl:'Confidence'}],
-      problem: 'Conversion rate had plateaued at 4.1% for 3 quarters. Product and growth teams had competing hypotheses but no rigorous way to test them simultaneously.',
+      tags: ['SaaS','A/B Testing','Python','Statistics'],
+      summary: 'Simulated a SaaS checkout funnel dataset to practice the full A/B testing workflow — from forming a hypothesis to running a significance test and writing up a recommendation, the way I would for a real product team.',
+      stats: [{val:'+2.1pp',lbl:'Conversion Lift'},{val:'95%',lbl:'Confidence'},{val:'3',lbl:'Drop-off Points'}],
+      problem: 'I wanted hands-on practice designing and analysing an A/B test correctly — including sample-size planning and avoiding the common mistake of peeking at results early — using a simulated checkout funnel as the scenario.',
       steps: [
-        'Ran funnel analysis in Mixpanel across 90 days of session data — identified 3 statistically significant drop-off points at address form, promo code field, and payment method selection.',
-        'Designed a multi-arm A/B test (3 variants + control) with power analysis to determine minimum 2-week runtime at 80% power.',
-        'Built a Bayesian inference pipeline in Python (PyMC) to get probability-of-being-best, not just p-values.',
-        'Variant C (simplified payment step + address autocomplete + removed promo code prominence) won with 97% confidence.',
-        'Rolled out to 100% — conversion moved from 4.1% → 6.2%, generating ₹60L additional ARR in Q3.',
+        'Defined a hypothesis: simplifying the payment step and adding address autocomplete would reduce checkout drop-off.',
+        'Calculated the minimum sample size needed for 80% statistical power before generating simulated session data.',
+        'Ran a two-sample proportion z-test in Python (Statsmodels) comparing control vs. variant conversion rates.',
+        'Found a statistically significant +2.1 percentage point lift at 95% confidence.',
+        'Wrote a one-page recommendation memo summarising the result and the caveats of testing on simulated rather than real traffic.',
       ],
-      stack: ['Python','PyMC','Mixpanel','SQL','Statsmodels','Pandas','Tableau'],
+      insight: 'The exercise reinforced why sample-size planning matters — an earlier, smaller simulated run gave a tempting but statistically insignificant result.',
+      impact: 'Demonstrates the statistical rigour (power analysis, significance testing, clear write-up) that a Data/Business Analyst role expects, practiced honestly on simulated rather than real company data.',
+      stack: ['Python','Statsmodels','Pandas','NumPy','Matplotlib'],
     },
     {
-      title: 'Customer Segmentation Model',
+      title: 'Customer Segmentation Analysis',
       img: 'Images/Customer Segmentation Model.png',
-      tags: ['Segmentation','K-means','Python','Tableau','Marketing'],
-      summary: 'Applied K-means clustering to 500K customer records to discover natural behavioural segments that the company had been treating as a homogeneous mass. The segments reshaped the entire Q4 marketing strategy.',
-      stats: [{val:'+23%',lbl:'Marketing ROI'},{val:'500K',lbl:'Records'},{val:'4',lbl:'Segments Found'}],
-      problem: 'The marketing team was blasting the same messaging to all customers and seeing declining ROI. There was a hypothesis that different customer types existed but no data-backed definition.',
+      tags: ['Segmentation','K-means','Python','Tableau'],
+      summary: 'Applied K-means clustering to a public retail dataset (~20K customers) to discover natural behavioural segments and proposed how a marketing team might message each one differently.',
+      stats: [{val:'4',lbl:'Segments Found'},{val:'20K',lbl:'Records'},{val:'8',lbl:'Features Used'}],
+      problem: 'Treating all customers the same in marketing campaigns usually means the message resonates with no one in particular. I wanted to practice using clustering to find real customer groups in a public retail dataset.',
       steps: [
-        'Engineered 22 features per customer: purchase frequency, average order value, category diversity, recency, seasonal patterns, support interactions, NPS score.',
-        'Determined optimal k=4 using elbow method + silhouette score. Validated cluster stability with 10× bootstrap resampling.',
-        'Profiled each segment: Enterprise Champions (60%), Growth SMBs (25%), At-Risk SMEs (15%), New Explorers — each with distinct LTV and behaviour.',
-        'Built Tableau dashboard for the marketing team showing segment migration over time and recommended messaging frameworks.',
-        'Q4 campaigns ran segment-specific creative — Enterprise got executive ROI reports, SMBs got quick-setup guides, At-Risk got re-engagement offers.',
+        'Engineered 8 features per customer: purchase frequency, average order value, recency, category diversity, and tenure.',
+        'Scaled features and determined the optimal number of clusters (k=4) using the elbow method and silhouette score.',
+        'Profiled each segment: high-value loyalists, frequent low-spenders, occasional big-spenders, and at-risk lapsing customers.',
+        'Built a Tableau dashboard visualising each segment\'s size, value, and behaviour patterns.',
+        'Proposed a simple, segment-specific messaging strategy as the "so what" for a marketing stakeholder.',
       ],
-      stack: ['Python','Scikit-learn','K-means','Pandas','Tableau','PostgreSQL','Excel'],
+      insight: 'The "frequent low-spenders" segment was nearly a third of all customers but contributed disproportionately little revenue — a clear candidate for upsell-focused messaging.',
+      impact: 'Shows the full segmentation workflow end-to-end: feature engineering → unsupervised modelling → cluster validation → a business-ready recommendation.',
+      stack: ['Python','Scikit-learn','K-means','Pandas','Tableau'],
     },
   ];
 
@@ -3971,9 +3973,13 @@ const dotCol = accent;
         <div class="pdm-stats">${statsHTML}</div>
         <div class="pdm-section-label">The Problem</div>
         <p class="pdm-text">${d.problem}</p>
-        <div class="pdm-section-label">How I solved it</div>
+        <div class="pdm-section-label">How I Approached It</div>
         <div class="pdm-steps">${stepsHTML}</div>
-        <div class="pdm-section-label">Tech Stack</div>
+        <div class="pdm-section-label">Key Insight</div>
+        <p class="pdm-text">${d.insight}</p>
+        <div class="pdm-section-label">Why It Matters</div>
+        <p class="pdm-text">${d.impact}</p>
+        <div class="pdm-section-label">Tools Used</div>
         <div class="pdm-stack">${stackHTML}</div>
       </div>`;
 
